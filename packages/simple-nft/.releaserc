@@ -4,7 +4,7 @@
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@open-rpc/semantic-release-plugin",
+    ["@open-rpc/semantic-release-plugin", {"documentLocation": "./openrpc.json"}],
     "@semantic-release/changelog",
     "@semantic-release/github",
     "@semantic-release/git",
@@ -13,7 +13,7 @@
   "verifyConditions": [
     "@semantic-release/exec",
     "@semantic-release/changelog",
-    "@open-rpc/semantic-release-plugin",
+    ["@open-rpc/semantic-release-plugin", {"documentLocation": "./openrpc.json"}],
     "@semantic-release/npm",
     "@semantic-release/git",
     "@semantic-release/github"
