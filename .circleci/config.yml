@@ -38,6 +38,26 @@ jobs:
       - run: npm run build --workspaces --if-present
       - save_cache: *save-deps-cache
 
+  release-nft:
+    <<: *defaults
+    docker:
+      - image: circleci/node:15.9.0
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm install multi-semantic-release semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/exec @qiwi/semantic-release-gh-pages-plugin @open-rpc/semantic-release-plugin
+      - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-ft/**,packages/ft-standard/**
+
+  release-ft:
+    <<: *defaults
+    docker:
+      - image: circleci/node:15.9.0
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm install multi-semantic-release semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/exec @qiwi/semantic-release-gh-pages-plugin @open-rpc/semantic-release-plugin
+      - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-nft/**,packages/nft-standard/**
+
   release:
     <<: *defaults
     docker:
@@ -55,7 +75,7 @@ workflows:
       - build:
           filters: *filter-only-semantic-pr
 
-  release:
+  release-ft:
     jobs:
       - build:
           filters: *filter-only-master
@@ -64,7 +84,21 @@ workflows:
           type: approval
           requires:
             - build 
-      - release:
+      - release-ft:
+          filters: *filter-only-master
+          requires:
+            - hold
+
+  release-nft:
+    jobs:
+      - build:
+          filters: *filter-only-master
+      - hold:
+          filters: *filter-only-master
+          type: approval
+          requires:
+            - build 
+      - release-nft:
           filters: *filter-only-master
           requires:
             - hold
