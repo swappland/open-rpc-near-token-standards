@@ -3,6 +3,7 @@
   "workspaces": [
     "packages/simple-nft",
     "packages/simple-ft",
-    "packages/nft-standard"
+    "packages/nft-standard",
+    "packages/ft-standard"
   ]
 }
