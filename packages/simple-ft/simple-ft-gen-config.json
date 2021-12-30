@@ -4,7 +4,7 @@
   "components": [
       {
           "type": "custom",
-          "name": "@swappland/simple-nft-client",
+          "name": "@swappland/simple-ft-client",
           "language": "typescript",
           "customComponent": "@shipsgold/open-rpc-near-client-generator",
           "customType": "client"
