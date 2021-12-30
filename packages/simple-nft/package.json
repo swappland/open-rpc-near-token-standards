@@ -7,7 +7,7 @@
     "gen:client": "open-rpc-generator generate -c simple-nft-gen-config.json",
     "build": "npm run bundle:open && npm run gen:client",
     "build:all": "cd generated-client/custom/typescript && npm install && npm run build",
-    "test": "npm run build"
+    "test": "npm run build:all"
   },
   "publishConfig": {
     "access": "public"
