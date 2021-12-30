@@ -2,6 +2,7 @@
   "name": "open-rpc-near-token-standards",
   "workspaces": [
     "packages/simple-nft",
-    "packages/simple-ft"
+    "packages/simple-ft",
+    "packages/nft-standard"
   ]
 }
