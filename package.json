@@ -4,6 +4,7 @@
     "packages/simple-nft",
     "packages/simple-ft",
     "packages/nft-standard",
-    "packages/ft-standard"
+    "packages/ft-standard",
+    "packages/standards-specs"
   ]
 }

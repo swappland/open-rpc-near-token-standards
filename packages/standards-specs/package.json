@@ -1,0 +1,54 @@
+{
+  "name": "@swappland/open-rpc-token-standards-specs",
+  "version": "0.0.0-development",
+  "description": "all token standard open-rpc schemas,components,methods to build from",
+  "scripts": {
+    "build": "mkdir -p specs && cp -r ../../methods specs  && cp -r ../../schemas specs && cp -r ../../tags specs",
+    "build:all": "npm run build",
+    "test": "npm run build:all"
+  },
+  "files":[
+    "specs/**/*.json",
+    "/schemas/**/*.json",
+    "../../tags/**/*.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swappland/open-rpc-near-token-standards"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/swappland/open-rpc-near-token-standards/issues"
+  },
+  "homepage": "https://github.com/swappland/open-rpc-near-token-standards#readme",
+  "devDependencies": {
+    "@open-rpc/generator": "^1.19.0",
+    "@types/bn.js": "^5.1.0",
+    "@types/body-parser": "^1.19.0",
+    "@types/connect": "^3.4.34",
+    "@types/cors": "^2.8.10",
+    "@types/fs-extra": "^9.0.11",
+    "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^15.6.1",
+    "@types/rimraf": "^3.0.0",
+    "@types/ws": "^8.2.2",
+    "fs-extra": "^10.0.0",
+    "jest": "27.0.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "27.0.1",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "@open-rpc/client-js": "^1.7.0",
+    "@shipsgold/open-rpc-near-client-generator": "^1.3.1",
+    "@xops.net/openrpc-cli": "^1.0.2",
+    "lodash": "4.17.15",
+    "near-api-js": "0.44.0",
+    "near-cli": "^2.0.1"
+  }
+}
