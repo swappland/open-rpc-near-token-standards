@@ -170,7 +170,7 @@ workflows:
           type: approval
           requires:
             - build 
-      - release-nft-standard:
+      - release-specs:
           filters: *filter-only-master
           requires:
             - hold
