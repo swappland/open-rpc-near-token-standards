@@ -30,6 +30,9 @@
             "$ref": "../../methods/nft/nft_transfer_call.json"
         },
         {
+            "$ref": "../../methods/nft/nft_payout.json"
+        },
+        {
             "$ref": "../../methods/nft/nft_transfer_payout.json"
         },
         {

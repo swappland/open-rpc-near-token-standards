@@ -51,15 +51,6 @@
         "$ref": "../../schemas/ApprovalId.json" 
       },
       "required": false
-    },
-    {
-      "name": "memo",
-      "summary": "Memo message to describe operation",
-      "description": "For use cases that may benefit from indexing or providing information for a transfer",
-      "schema": {
-        "$ref": "../../schemas/Memo.json"
-      },
-      "required": false
     }
   ],
   "result": {
