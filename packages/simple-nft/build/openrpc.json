@@ -1,0 +1,1449 @@
+{
+  "openrpc": "1.0.0",
+  "info": {
+    "title": "SimpleNFT",
+    "version": "0.0.0-development"
+  },
+  "methods": [
+    {
+      "name": "is_init",
+      "summary": "contract is init mostly for test",
+      "description": "contract is init mostly for test",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        }
+      ],
+      "params": [],
+      "result": {
+        "name": "NftIsInitResult",
+        "summary": "returns if its initialized",
+        "description": "returns if its initialized",
+        "schema": {
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "name": "set_contract_royalty",
+      "summary": "Set royalty for the contract",
+      "description": "Set royalty for the contract",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "contract_royalty",
+          "summary": "Set the royalty amount for the contract",
+          "description": "Set the royalty amount for the contract",
+          "schema": {
+            "title": "ContractRoyalty",
+            "type": "integer"
+          },
+          "required": true
+        }
+      ],
+      "result": {
+        "name": "NftSimpleRoyaltyResult",
+        "summary": "Void",
+        "description": "Void",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "set_token_royalty",
+      "summary": "Set token royalty for the token_id",
+      "description": "Set token royalty for the token_id",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_id",
+          "summary": "Set the token_id for the royalty",
+          "description": "Set the token_id for the royalty",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "royalty",
+          "summary": "Set the royalty amount for each account id payout",
+          "description": "Set the royalty amount for each account id payout",
+          "schema": {
+            "title": "RoyaltyMap",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "type": "integer"
+            }
+          },
+          "required": true
+        }
+      ],
+      "result": {
+        "name": "NftSimpleRoyaltyResult",
+        "summary": "Void",
+        "description": "Void",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "get_contract_royalty",
+      "summary": "Get royalty for the contract",
+      "description": "Get royalty for the contract",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        }
+      ],
+      "params": [],
+      "result": {
+        "name": "NftSimpleGetContractRoyaltyResult",
+        "summary": "Contract royalty payout",
+        "description": "Contract royalty payout",
+        "schema": {
+          "title": "ContractRoyalty",
+          "type": "integer"
+        }
+      }
+    },
+    {
+      "name": "new",
+      "summary": "Instantiate ft contract",
+      "description": "Instantiate ft contract",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "owner_id",
+          "summary": "The owner of the contract",
+          "description": "The owner of the contract",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "summary": "The metadata for the token contract",
+          "description": "The metadata for the token contract",
+          "schema": {
+            "title": "NFTContractMetadata",
+            "description": "Metadata for tokens at class level",
+            "type": "object",
+            "properties": {
+              "name": {
+                "title": "NFTContractMetadataName",
+                "type": "string",
+                "description": "ex. 'Silver Swords' or 'Metaverse 3'"
+              },
+              "symbol": {
+                "title": "NFTContractMetadataSymbol",
+                "type": "string",
+                "description": "ex. MOCHI"
+              },
+              "spec": {
+                "title": "NFTContractMetadataSpec",
+                "type": "string",
+                "description": "essentially a version like nft-1.0.0"
+              },
+              "icon": {
+                "title": "NFTContractMetadataIcon",
+                "type": "string",
+                "description": "Data URL"
+              },
+              "decimals": {
+                "title": "NFTContractMetadataDecimals",
+                "type": "string",
+                "description": "number of decimals for the token useful for FT related tokens"
+              },
+              "base_uri": {
+                "title": "NFTContractMetadataBaseUri",
+                "type": "string",
+                "description": "entralized gateway known to have reliable access to decentralized storage assets referenced by `reference` or `media` URLs"
+              },
+              "reference": {
+                "title": "NFTContractMetadataReference",
+                "type": "string",
+                "description": "URL to a JSON file with more info"
+              },
+              "reference_hash": {
+                "title": "NFTContractMetadataReferenceHash",
+                "type": "string",
+                "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+              },
+              "copies": {
+                "title": "NFTContractMetadataCopies",
+                "type": "number",
+                "description": "number of copies of this set of metadata in existence when token was minted."
+              }
+            },
+            "required": [
+              "name",
+              "symbol",
+              "spec"
+            ]
+          },
+          "required": true
+        },
+        {
+          "name": "supply_cap_by_type",
+          "summary": "Map of token type to supply amounts",
+          "description": "Map of token type to supply amounts",
+          "schema": {
+            "title": "TokenSupplyCaps",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "type": "integer"
+            }
+          },
+          "required": false
+        },
+        {
+          "name": "unlocked",
+          "summary": "locked or unlocked flag",
+          "description": "locked or unlocked flag",
+          "schema": {
+            "title": "Unlocked",
+            "type": "boolean"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "FtSimpleNewResult",
+        "summary": "Void",
+        "description": "Void",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "nft_mint",
+      "summary": "Mint an NFT token for simple contract",
+      "description": "Mint an nft to an account",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_id",
+          "summary": "The token ids for which to add an approval",
+          "description": "The token ids for which to add an approval",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "summary": "The token metadata associated with the token",
+          "description": "The token metadata associated with the token",
+          "schema": {
+            "title": "NFTTokenMetadata",
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "NFTTokenMetadataTitle",
+                "description": "ex. Parcel #5055"
+              },
+              "description": {
+                "type": "string",
+                "title": "NFTTokenMetadataDesc",
+                "description": "free-form description"
+              },
+              "media": {
+                "type": "string",
+                "title": "NFTTokenMetadataMedia",
+                "description": "URL to associated media, preferably to decentralized, content-addressed storage"
+              },
+              "media_hash": {
+                "type": "string",
+                "title": "NFTTokenMetadataMediaHash",
+                "description": "Base64-encoded sha256 hash of content referenced by the `media` field. Required if `media` is included."
+              },
+              "issued_at": {
+                "type": "string",
+                "title": "NFTokenMetadataIssuedAt",
+                "description": "When token was issued or minted, Unix epoc in milliseconds"
+              },
+              "expires_at": {
+                "type": "string",
+                "title": "NFTokenMetadataExpiresAt",
+                "description": "When token expires, Unix epoch in milliseconds"
+              },
+              "starts_at": {
+                "type": "string",
+                "title": "NFTokenMetadataStartsAt",
+                "description": "When token starts being valid, Unix epoch in milliseconds"
+              },
+              "updated_at": {
+                "type": "string",
+                "title": "NFTokenMetadataUpdatedAt",
+                "description": "When token was last updated, Unix epoch in milliseconds"
+              },
+              "extra": {
+                "type": "string",
+                "title": "NFTokenMetadataExtra",
+                "description": "Anything extra the MT wants to store on-chain. Can be stringified JSON."
+              },
+              "reference": {
+                "type": "string",
+                "title": "NFTokenMetadataReference",
+                "description": "URL to an off-chain JSON file with more info."
+              },
+              "reference_hash": {
+                "type": "string",
+                "title": "NFTokenMetadataReferenceHash",
+                "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+              }
+            }
+          },
+          "required": true
+        },
+        {
+          "name": "perpetual_royalties",
+          "summary": "Perpetual royalty payout structure for nft",
+          "description": "Perpetual royalty payout structure for nft",
+          "schema": {
+            "title": "RoyaltyMap",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": {
+              "type": "integer"
+            }
+          },
+          "required": false
+        },
+        {
+          "name": "receiver_id",
+          "summary": "optional account_id to receive the token",
+          "description": "optional account_id to receive the token",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": false
+        },
+        {
+          "name": "token_type",
+          "summary": "optional token_type to specify what token it is",
+          "description": "optional token_type to specify what token it is",
+          "schema": {
+            "title": "TokenType",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "NftSimpleMintResult",
+        "summary": "Void",
+        "description": "Void",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "nft_transfer",
+      "summary": "Transfers tokens from one account to another",
+      "description": "Transfer tokens from one account to another. A basic token transfer. Transfer a token or tokens given a token_id. The token id can correspond to either a NonFungibleToken or FungibleToken  - this is differentiated by the implementation.",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "receiver_id",
+          "summary": "Receiving account id",
+          "description": "The valid NEAR account receiving the token",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "token_id",
+          "summary": "The TokenId to transfer",
+          "description": "The TokenId to transfer",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "approval_id",
+          "summary": "Expected approval ID",
+          "description": "Expected approval ID. A number smaller than 2^53, and therefore representable as JSON.",
+          "schema": {
+            "title": "ApprovalId",
+            "description": "expected approval ID. A number smaller than 2^53",
+            "type": "number"
+          },
+          "required": false
+        },
+        {
+          "name": "memo",
+          "summary": "Memo message to describe operation",
+          "description": "For use cases that may benefit from indexing or providing information for a transfer",
+          "schema": {
+            "title": "Memo",
+            "description": "A message to describe an operation",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "NFTTransferResult",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "nft_transfer_call",
+      "description": "Transfer tokens from one account to another contract. Transfer token/s and call a method on a receiver contract. A successful workflow will end in a success execution outcome to the callback on the MultiToken contract at the method `mt_resolve_transfer`. You can think of this as being similar to attaching NEAR tokens as a `deposit` to a function call. It allows you to attach any FungibleToken or NonFungibleToken in a call to a receiver contract.  ",
+      "summary": "Transfers tokens from one account to another contract",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "receiver_id",
+          "summary": "Receiving account id",
+          "description": "The valid NEAR account receiving the token",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "token_id",
+          "summary": "The TokenId to transfer",
+          "description": "The TokenId to transfer",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "approval_id",
+          "summary": "Expected approval ID",
+          "description": "Expected approval ID. A number smaller than 2^53, and therefore representable as JSON.",
+          "schema": {
+            "title": "ApprovalId",
+            "description": "expected approval ID. A number smaller than 2^53",
+            "type": "number"
+          },
+          "required": false
+        },
+        {
+          "name": "memo",
+          "summary": "Memo message to describe operation",
+          "description": "For use cases that may benefit from indexing or providing information for a transfer",
+          "schema": {
+            "title": "Memo",
+            "description": "A message to describe an operation",
+            "type": "string"
+          },
+          "required": false
+        },
+        {
+          "name": "msg",
+          "summary": "Specifies information for the receiving contract",
+          "description": "It specifies information needed by the receiving contract in order to properly handle the transfer. Can indicate both a function to call and the parameters to pass to that function.",
+          "schema": {
+            "title": "Msg",
+            "description": "message for receiving contracts",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "NFTransferCallResult",
+        "summary": "The amount optionally returned to sender",
+        "description": "The amount returned to the sender, if resolve implmented",
+        "schema": {
+          "title": "U128",
+          "type": "string",
+          "description": "U128 integer as string"
+        },
+        "required": false
+      }
+    },
+    {
+      "name": "nft_transfer_payout",
+      "summary": "Transfers tokens from one account to another with royalty payout",
+      "description": "Transfer tokens from one account to another with royalty payout calculation. Calling contract receives resulting payout computation",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "receiver_id",
+          "summary": "Receiving account id",
+          "description": "The valid NEAR account receiving the token",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "token_id",
+          "summary": "The TokenId to transfer",
+          "description": "The TokenId to transfer",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "balance",
+          "summary": "The amount for the nft contract to determine payout",
+          "description": "The amount for the nft contract to determine payout",
+          "schema": {
+            "title": "U128",
+            "type": "string",
+            "description": "U128 integer as string"
+          }
+        },
+        {
+          "name": "max_len_payout",
+          "summary": "The maximum number of accounts to pay out",
+          "description": "The maximum number of accounts that can be paid out",
+          "schema": {
+            "title": "U32",
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        {
+          "name": "approval_id",
+          "summary": "Expected approval ID",
+          "description": "Expected approval ID. A number smaller than 2^53, and therefore representable as JSON.",
+          "schema": {
+            "title": "ApprovalId",
+            "description": "expected approval ID. A number smaller than 2^53",
+            "type": "number"
+          },
+          "required": false
+        },
+        {
+          "name": "memo",
+          "summary": "Memo message to describe operation",
+          "description": "For use cases that may benefit from indexing or providing information for a transfer",
+          "schema": {
+            "title": "Memo",
+            "description": "A message to describe an operation",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "NFTTransferPayout",
+        "schema": {
+          "title": "NFTPayout",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": {
+            "title": "U128",
+            "type": "string",
+            "description": "U128 integer as string"
+          }
+        }
+      }
+    },
+    {
+      "name": "nft_resolve_transfer",
+      "summary": "Used when MultiTokens are transferred using `mt_transfer_call`",
+      "description": "Used when MultiTokens are transferred using `mt_transfer_call`. This is the method that's called after `mt_on_transfer` implemented on the multitoken contract",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "sender_id",
+          "summary": "sender of `nft_transfer_call`",
+          "description": "sender of `nft_transfer_call`",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "previous_owner_id",
+          "summary": "The account that owned the tokens prior to it being transferred with `mt_transfer_call`",
+          "description": "The account that owned the tokens prior to it being transferred",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "receiver_id",
+          "summary": "The `receiver_id` argument of `nft_transfer_call`",
+          "description": "The `receiver_id` argument of `nft_transfer_call`, the account being transfered to",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "token_id",
+          "summary": "The `token_ids` argument given to `nft_transfer_call`",
+          "description": "The `token_ids` argument given to `nft_transfer_call`",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          }
+        },
+        {
+          "name": "approved_account_ids",
+          "summary": "Approved accounts in case of revert.",
+          "description": "Approved accounts in case of revert. In this case it may be multiple sets of approvals . If specified the length and order must correspond to token_ids",
+          "schema": {
+            "type": "array",
+            "items": [
+              {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "title": "AccountIds",
+                    "type": "array",
+                    "items": [
+                      {
+                        "title": "AccountId",
+                        "type": "string",
+                        "description": "AccountId for the near account"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "NftResolveTransferResult",
+        "summary": "Returns the amount of how many total tokens were spent by `sender_id`, corresponding to the `token_id`.Returns a vector of  amounts for the tokens that should be returned to `sender_id`",
+        "description": "Returns the amount of how many total tokens were spent by `sender_id`, corresponding to the `token_id`.Returns a vector of  amounts for the tokens that should be returned to `sender_id`",
+        "schema": {
+          "title": "U128",
+          "type": "string",
+          "description": "U128 integer as string"
+        },
+        "required": true
+      }
+    },
+    {
+      "name": "nft_token",
+      "summary": "Get a list of all tokens. ",
+      "description": "Get a list of all tokens. Returning a list of `NFToken` with respect to pagination.",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_id",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          }
+        }
+      ],
+      "result": {
+        "name": "NFTokenResult",
+        "summary": "Token description given token id",
+        "description": "Token description given token id, or null if token doesn't exist",
+        "schema": {
+          "title": "NFTToken",
+          "type": "object",
+          "properties": {
+            "token_id": {
+              "title": "TokenId",
+              "description": "Token identifier that corresponds to an id",
+              "type": "string"
+            },
+            "owner_id": {
+              "title": "AccountId",
+              "type": "string",
+              "description": "AccountId for the near account"
+            },
+            "metadata": {
+              "title": "NFTTokenMetadata",
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "title": "NFTTokenMetadataTitle",
+                  "description": "ex. Parcel #5055"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "NFTTokenMetadataDesc",
+                  "description": "free-form description"
+                },
+                "media": {
+                  "type": "string",
+                  "title": "NFTTokenMetadataMedia",
+                  "description": "URL to associated media, preferably to decentralized, content-addressed storage"
+                },
+                "media_hash": {
+                  "type": "string",
+                  "title": "NFTTokenMetadataMediaHash",
+                  "description": "Base64-encoded sha256 hash of content referenced by the `media` field. Required if `media` is included."
+                },
+                "issued_at": {
+                  "type": "string",
+                  "title": "NFTokenMetadataIssuedAt",
+                  "description": "When token was issued or minted, Unix epoc in milliseconds"
+                },
+                "expires_at": {
+                  "type": "string",
+                  "title": "NFTokenMetadataExpiresAt",
+                  "description": "When token expires, Unix epoch in milliseconds"
+                },
+                "starts_at": {
+                  "type": "string",
+                  "title": "NFTokenMetadataStartsAt",
+                  "description": "When token starts being valid, Unix epoch in milliseconds"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "title": "NFTokenMetadataUpdatedAt",
+                  "description": "When token was last updated, Unix epoch in milliseconds"
+                },
+                "extra": {
+                  "type": "string",
+                  "title": "NFTokenMetadataExtra",
+                  "description": "Anything extra the MT wants to store on-chain. Can be stringified JSON."
+                },
+                "reference": {
+                  "type": "string",
+                  "title": "NFTokenMetadataReference",
+                  "description": "URL to an off-chain JSON file with more info."
+                },
+                "reference_hash": {
+                  "type": "string",
+                  "title": "NFTokenMetadataReferenceHash",
+                  "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+                }
+              }
+            },
+            "approved_account_ids": {
+              "title": "ApprovalsObject",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "title": "ApprovalId",
+                "description": "expected approval ID. A number smaller than 2^53",
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "token_id",
+            "owner_id"
+          ]
+        },
+        "required": true
+      }
+    },
+    {
+      "name": "nft_tokens",
+      "summary": "Get a list of all tokens. ",
+      "description": "Get a list of all tokens. Returning a list of `NFToken` with respect to pagination.",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "EnumerationExtension",
+          "description": "The optional Enumeration standard for MultiToken"
+        }
+      ],
+      "params": [
+        {
+          "name": "from_index",
+          "schema": {
+            "title": "U64",
+            "type": "string",
+            "description": "U64 integer as string"
+          }
+        },
+        {
+          "name": "limit",
+          "schema": {
+            "title": "PaginationLimit",
+            "description": "PaginationLimit",
+            "type": "number"
+          }
+        }
+      ],
+      "result": {
+        "name": "NFTokensResult",
+        "summary": "List of all tokens in the contract truncated by the pagination limits.",
+        "description": "List of all tokens in the contract truncated by the pagination limits. An empty array represents no tokens",
+        "schema": {
+          "title": "NFTTokens",
+          "type": "array",
+          "items": [
+            {
+              "title": "NFTToken",
+              "type": "object",
+              "properties": {
+                "token_id": {
+                  "title": "TokenId",
+                  "description": "Token identifier that corresponds to an id",
+                  "type": "string"
+                },
+                "owner_id": {
+                  "title": "AccountId",
+                  "type": "string",
+                  "description": "AccountId for the near account"
+                },
+                "metadata": {
+                  "title": "NFTTokenMetadata",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataTitle",
+                      "description": "ex. Parcel #5055"
+                    },
+                    "description": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataDesc",
+                      "description": "free-form description"
+                    },
+                    "media": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataMedia",
+                      "description": "URL to associated media, preferably to decentralized, content-addressed storage"
+                    },
+                    "media_hash": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataMediaHash",
+                      "description": "Base64-encoded sha256 hash of content referenced by the `media` field. Required if `media` is included."
+                    },
+                    "issued_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataIssuedAt",
+                      "description": "When token was issued or minted, Unix epoc in milliseconds"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataExpiresAt",
+                      "description": "When token expires, Unix epoch in milliseconds"
+                    },
+                    "starts_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataStartsAt",
+                      "description": "When token starts being valid, Unix epoch in milliseconds"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataUpdatedAt",
+                      "description": "When token was last updated, Unix epoch in milliseconds"
+                    },
+                    "extra": {
+                      "type": "string",
+                      "title": "NFTokenMetadataExtra",
+                      "description": "Anything extra the MT wants to store on-chain. Can be stringified JSON."
+                    },
+                    "reference": {
+                      "type": "string",
+                      "title": "NFTokenMetadataReference",
+                      "description": "URL to an off-chain JSON file with more info."
+                    },
+                    "reference_hash": {
+                      "type": "string",
+                      "title": "NFTokenMetadataReferenceHash",
+                      "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+                    }
+                  }
+                },
+                "approved_account_ids": {
+                  "title": "ApprovalsObject",
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "title": "ApprovalId",
+                    "description": "expected approval ID. A number smaller than 2^53",
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "token_id",
+                "owner_id"
+              ]
+            }
+          ]
+        },
+        "required": true
+      }
+    },
+    {
+      "name": "nft_tokens_for_owner",
+      "summary": "Get a list of all tokens owned by the account specified. ",
+      "description": "Get a list of all tokens owned by the account specified. Returning a list of `NFToken` with respect to pagination.",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "EnumerationExtension",
+          "description": "The optional Enumeration standard for MultiToken"
+        }
+      ],
+      "params": [
+        {
+          "name": "account_id",
+          "summary": "the owner account id",
+          "description": "the owner account id",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "from_index",
+          "summary": "a string representing an unsigned 128-bit integer, representing the starting index of tokens to return",
+          "description": "a string representing an unsigned 128-bit integer, representing the starting index of tokens to return",
+          "schema": {
+            "title": "U64",
+            "type": "string",
+            "description": "U64 integer as string"
+          }
+        },
+        {
+          "name": "limit",
+          "summary": "the maximum number of tokens to return",
+          "description": "the maximum number of tokens to return",
+          "schema": {
+            "title": "PaginationLimit",
+            "description": "PaginationLimit",
+            "type": "number"
+          }
+        }
+      ],
+      "result": {
+        "name": "NFTokensResult",
+        "summary": "List of all tokens in the contract truncated by the pagination limits.",
+        "description": "List of all tokens in the contract truncated by the pagination limits. An empty array represents no tokens",
+        "schema": {
+          "title": "NFTTokens",
+          "type": "array",
+          "items": [
+            {
+              "title": "NFTToken",
+              "type": "object",
+              "properties": {
+                "token_id": {
+                  "title": "TokenId",
+                  "description": "Token identifier that corresponds to an id",
+                  "type": "string"
+                },
+                "owner_id": {
+                  "title": "AccountId",
+                  "type": "string",
+                  "description": "AccountId for the near account"
+                },
+                "metadata": {
+                  "title": "NFTTokenMetadata",
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataTitle",
+                      "description": "ex. Parcel #5055"
+                    },
+                    "description": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataDesc",
+                      "description": "free-form description"
+                    },
+                    "media": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataMedia",
+                      "description": "URL to associated media, preferably to decentralized, content-addressed storage"
+                    },
+                    "media_hash": {
+                      "type": "string",
+                      "title": "NFTTokenMetadataMediaHash",
+                      "description": "Base64-encoded sha256 hash of content referenced by the `media` field. Required if `media` is included."
+                    },
+                    "issued_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataIssuedAt",
+                      "description": "When token was issued or minted, Unix epoc in milliseconds"
+                    },
+                    "expires_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataExpiresAt",
+                      "description": "When token expires, Unix epoch in milliseconds"
+                    },
+                    "starts_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataStartsAt",
+                      "description": "When token starts being valid, Unix epoch in milliseconds"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "title": "NFTokenMetadataUpdatedAt",
+                      "description": "When token was last updated, Unix epoch in milliseconds"
+                    },
+                    "extra": {
+                      "type": "string",
+                      "title": "NFTokenMetadataExtra",
+                      "description": "Anything extra the MT wants to store on-chain. Can be stringified JSON."
+                    },
+                    "reference": {
+                      "type": "string",
+                      "title": "NFTokenMetadataReference",
+                      "description": "URL to an off-chain JSON file with more info."
+                    },
+                    "reference_hash": {
+                      "type": "string",
+                      "title": "NFTokenMetadataReferenceHash",
+                      "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+                    }
+                  }
+                },
+                "approved_account_ids": {
+                  "title": "ApprovalsObject",
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": {
+                    "title": "ApprovalId",
+                    "description": "expected approval ID. A number smaller than 2^53",
+                    "type": "number"
+                  }
+                }
+              },
+              "required": [
+                "token_id",
+                "owner_id"
+              ]
+            }
+          ]
+        },
+        "required": true
+      }
+    },
+    {
+      "name": "nft_metadata",
+      "summary": "Get contract level metadata",
+      "description": "Get contract level metadata",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "MetadataExtension",
+          "description": "Metadata Extension for representing token meta data"
+        }
+      ],
+      "params": [],
+      "result": {
+        "name": "NFTContractMetadataResult",
+        "summary": "Contract metadata",
+        "schema": {
+          "title": "NFTContractMetadata",
+          "description": "Metadata for tokens at class level",
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "NFTContractMetadataName",
+              "type": "string",
+              "description": "ex. 'Silver Swords' or 'Metaverse 3'"
+            },
+            "symbol": {
+              "title": "NFTContractMetadataSymbol",
+              "type": "string",
+              "description": "ex. MOCHI"
+            },
+            "spec": {
+              "title": "NFTContractMetadataSpec",
+              "type": "string",
+              "description": "essentially a version like nft-1.0.0"
+            },
+            "icon": {
+              "title": "NFTContractMetadataIcon",
+              "type": "string",
+              "description": "Data URL"
+            },
+            "decimals": {
+              "title": "NFTContractMetadataDecimals",
+              "type": "string",
+              "description": "number of decimals for the token useful for FT related tokens"
+            },
+            "base_uri": {
+              "title": "NFTContractMetadataBaseUri",
+              "type": "string",
+              "description": "entralized gateway known to have reliable access to decentralized storage assets referenced by `reference` or `media` URLs"
+            },
+            "reference": {
+              "title": "NFTContractMetadataReference",
+              "type": "string",
+              "description": "URL to a JSON file with more info"
+            },
+            "reference_hash": {
+              "title": "NFTContractMetadataReferenceHash",
+              "type": "string",
+              "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+            },
+            "copies": {
+              "title": "NFTContractMetadataCopies",
+              "type": "number",
+              "description": "number of copies of this set of metadata in existence when token was minted."
+            }
+          },
+          "required": [
+            "name",
+            "symbol",
+            "spec"
+          ]
+        }
+      }
+    },
+    {
+      "name": "nft_total_supply",
+      "summary": "Get total number of tokens in the contract",
+      "description": "Get total number of tokens in the contract",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "EnumerationExtension",
+          "description": "The optional Enumeration standard for MultiToken"
+        }
+      ],
+      "params": [],
+      "result": {
+        "name": "NFTTokensSupply",
+        "summary": "Total supply of nft tokens owned by an account",
+        "description": "Total supply of nft tokens owned by an account. Returns the number of non-fungible tokens owned by given `account_id` as",
+        "schema": {
+          "title": "U128",
+          "type": "string",
+          "description": "U128 integer as string"
+        },
+        "required": true
+      }
+    },
+    {
+      "name": "nft_supply_for_owner",
+      "summary": "Get number of tokens owned by a given account",
+      "description": "Get number of tokens owned by a given account",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "EnumerationExtension",
+          "description": "The optional Enumeration standard for MultiToken"
+        }
+      ],
+      "params": [
+        {
+          "summary": "",
+          "description": "",
+          "name": "account_id",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        }
+      ],
+      "result": {
+        "name": "NFTTokensOwnerSupply",
+        "summary": "Total supply of nft tokens owned by an account",
+        "description": "Total supply of nft tokens owned by an account. Returns the number of non-fungible tokens owned by given `account_id` as",
+        "schema": {
+          "title": "U128",
+          "type": "string",
+          "description": "U128 integer as string"
+        },
+        "required": true
+      }
+    },
+    {
+      "name": "nft_approve",
+      "summary": "Add an approved account for a specific set of tokens",
+      "description": "Add an approved account for a specific set of tokens",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        },
+        {
+          "name": "ApprovalManagement",
+          "description": "Approval Management Extension"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_id",
+          "summary": "The token ids for which to add an approval",
+          "description": "The token ids for which to add an approval",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "account_id",
+          "summary": "The account to add to approvals",
+          "description": "The account to add to approvals",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "msg",
+          "summary": "optional string to be passed to `mt_on_approve`",
+          "description": "optional string to be passed to `mt_on_approve`",
+          "schema": {
+            "title": "Msg",
+            "description": "message for receiving contracts",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "NftApproveResult",
+        "summary": "Void, if no `msg` given.",
+        "description": "Void, if no `msg` given. Otherwise, returns promise call to `mt_on_approve`, which can resolve with whatever it wants.",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "nft_revoke",
+      "summary": "Revoke an approved account for a specific token",
+      "description": "Revoke an approved account for a specific token",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        },
+        {
+          "name": "ApprovalManagement",
+          "description": "Approval Management Extension"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_id",
+          "summary": "The token id for which to revoke approvals",
+          "description": "The token id for which to revoke approvals",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "account_id",
+          "summary": "The account to revoke from approvals",
+          "description": "The account to revoke from approvals",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          }
+        }
+      ],
+      "result": {
+        "name": "MtRevokeResult",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "nft_revoke_all",
+      "summary": "Revoke all approved accounts for a specific token.",
+      "description": "Revoke all approved accounts for a specific token.  Caller of the method must attach a deposit of 1 yoctoⓃ for security purposes",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        },
+        {
+          "name": "ApprovalManagement",
+          "description": "Approval Management Extension"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_id",
+          "summary": "The token id for which to revoke all approvals",
+          "description": "The token ids for which to revoke all approvals",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "result": {
+        "name": "MtRevokeAllResult",
+        "schema": {
+          "type": "null"
+        },
+        "required": true
+      }
+    },
+    {
+      "name": "nft_is_approved",
+      "summary": "Check if tokens are approved for transfer by a given account, optionally checking approval_id",
+      "description": "Check if tokens are approved for transfer by a given account, optionally checking approval_id",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "ApprovalManagement",
+          "description": "Approval Management Extension"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_id",
+          "summary": "The token ids for which to check approval",
+          "description": "The token ids for which to check approval",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "approved_account_id",
+          "summary": "the account to check the existence of in `approvals`",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "approval_ids",
+          "summary": "an optional approval ID to check against current approval ID for given account",
+          "schema": {
+            "title": "ApprovalId",
+            "description": "expected approval ID. A number smaller than 2^53",
+            "type": "number"
+          }
+        }
+      ],
+      "result": {
+        "name": "NftApprovedResult",
+        "summary": "returns state of the approval for tokens given the approved_acccount_id",
+        "description": "returns state of the approval for tokens given the approved_acccount_id",
+        "schema": {
+          "type": "boolean"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "new",
+  "summary": "Instantiate ft contract",
+  "description": "Instantiate ft contract",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "owner_id",
+      "summary": "The owner of the contract",
+      "description": "The owner of the contract",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "total_supply",
+      "summary": "The initial total supply of the contract",
+      "description": "The initial total supply of the contract",
+      "schema": {
+        "$ref": "../../schemas/U128.json"
+      },
+      "required": true
+    },
+    {
+      "name": "version",
+      "summary": "The version of the token",
+      "description": "The verson of the token contract in x.x.x format major.minor.patch",
+      "schema": {
+        "$ref": "../../schemas/FTMetadataVersion.json"
+      },
+      "required": true
+    },
+    {
+      "name": "name",
+      "summary": "The name of the token",
+      "description": "The name of the token contract",
+      "schema": {
+        "$ref": "../../schemas/FTMetadataName.json"
+      },
+      "required": true
+    },
+    {
+      "name": "symbol",
+      "summary": "The symbol of the token",
+      "description": "The symbol of the token contract",
+      "schema": {
+        "$ref": "../../schemas/FTMetadataSymbol.json"
+      },
+      "required": true
+    },
+    {
+      "name": "reference",
+      "summary": "The symbol of the token contract",
+      "description": "URL to an off-chain JSON file with more info.",
+      "schema": {
+        "$ref": "../../schemas/FTMetadataReference.json"
+      },
+      "required": true
+    },
+    {
+      "name": "reference_hash",
+      "summary": "Base64-encoded sha256 hash of JSON from reference field",
+      "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included.",
+      "schema": {
+        "$ref": "../../schemas/FTMetadataReferenceHash.json"
+      },
+      "required": true
+    },
+    {
+      "name": "decimals",
+      "summary": "number of decimals for the token useful for FT related tokens",
+      "description": "number of decimals for the token useful for FT related tokens",
+      "schema": {
+        "$ref": "../../schemas/FTMetadataDecimals.json"
+      },
+      "required": true
+    }
+  ],
+  "result": {
+    "name": "FtSimpleNewResult",
+    "summary": "Void",
+    "description": "Void",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

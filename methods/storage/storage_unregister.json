@@ -1,0 +1,34 @@
+{
+  "name": "storage_unregister",
+  "summary": "Unregister the predecessor account and return the storage NEAR deposit back",
+  "description": "Unregister the predecessor account and return the storage NEAR deposit back. Requires 1yoctoNEAR attached balance to prevent function-call access-key call",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    },
+    {
+      "$ref": "../../tags/StorageManagement.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "force",
+      "summary": "The force flag set to true will ignore account balances and burn the tokens and close the account",
+      "description": "The force flag set to true will ignore account balances and burn the tokens and close the account",
+      "schema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "result": {
+    "name": "StorageUnregisterResult",
+    "summary": "An array of booleans corresponding to the `token_ids`. `false` if token was already unregistered true other wise",
+    "schema": {
+      "type":"array",
+      "items": [{
+        "type": "boolean"
+      }]
+    }
+  }
+}

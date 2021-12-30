@@ -1,0 +1,38 @@
+{
+  "name": "add_token_types",
+  "summary": "Add token types to the  contract",
+  "description": "Add token types to the contract (owner restricted)",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "supply_cap_by_type",
+      "summary": "A map for supplies and the supply cap",
+      "description": "A map of tokentype to supply cap",
+      "schema": {
+        "$ref": "../../schemas/simple-nft/TokenSupplyCaps.json"
+      },
+      "required": true
+    },
+    {
+      "name": "unlocked",
+      "summary": "Unlocked or locked token supply",
+      "description": "Unlocked or locked token supply",
+      "schema": {
+        "$ref": "../../schemas/simple-nft/Unlocked.json"
+      },
+      "required": false
+    }
+  ],
+  "result": {
+    "name": "NftSimpleAddTokenTypeResult",
+    "summary": "Void",
+    "description": "Void",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

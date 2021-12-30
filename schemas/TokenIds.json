@@ -1,0 +1,7 @@
+{
+  "title": "TokenIds",
+  "type": "array",
+  "items": [{
+    "$ref": "./TokenId.json"
+  }]
+}

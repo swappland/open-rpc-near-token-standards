@@ -1,0 +1,38 @@
+{
+  "name": "set_token_royalty",
+  "summary": "Set token royalty for the token_id",
+  "description": "Set token royalty for the token_id",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "token_id",
+      "summary": "Set the token_id for the royalty",
+      "description": "Set the token_id for the royalty",
+      "schema": {
+        "$ref": "../../schemas/TokenId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "royalty",
+      "summary": "Set the royalty amount for each account id payout",
+      "description": "Set the royalty amount for each account id payout",
+      "schema": {
+        "$ref": "../../schemas/simple-nft/RoyaltyMap.json"
+      },
+      "required": true
+    }
+  ],
+  "result": {
+    "name": "NftSimpleRoyaltyResult",
+    "summary": "Void",
+    "description": "Void",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

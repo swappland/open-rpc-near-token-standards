@@ -1,0 +1,24 @@
+{
+  "name": "nft_total_supply",
+  "summary": "Get total number of tokens in the contract",
+  "description": "Get total number of tokens in the contract",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/EnumerationExtension.json"
+    }
+  ],
+  "params": [
+  ],
+  "result": {
+    "name": "NFTTokensSupply",
+    "summary": "Total supply of nft tokens owned by an account",
+    "description": "Total supply of nft tokens owned by an account. Returns the number of non-fungible tokens owned by given `account_id` as",
+    "schema": {
+      "$ref": "../../schemas/U128.json"
+    },
+    "required": true
+  }
+}

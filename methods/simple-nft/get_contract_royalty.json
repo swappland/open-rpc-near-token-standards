@@ -1,0 +1,19 @@
+{
+  "name": "get_contract_royalty",
+  "summary": "Get royalty for the contract",
+  "description": "Get royalty for the contract",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    }
+  ],
+  "params": [],
+  "result": {
+    "name": "NftSimpleGetContractRoyaltyResult",
+    "summary": "Contract royalty payout",
+    "description": "Contract royalty payout",
+    "schema": {
+        "$ref": "../../schemas/simple-nft/ContractRoyalty.json"
+    }
+  }
+}

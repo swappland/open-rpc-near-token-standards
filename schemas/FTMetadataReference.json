@@ -1,0 +1,5 @@
+{
+      "type": "string",
+      "title": "FTMetadataReference",
+      "description": "URL to an off-chain JSON file with more info."
+}

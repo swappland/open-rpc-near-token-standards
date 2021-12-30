@@ -1,0 +1,5 @@
+{
+  "title": "ApprovalId",
+  "description": "expected approval ID. A number smaller than 2^53",
+  "type": "number"
+}

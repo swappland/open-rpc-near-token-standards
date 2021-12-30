@@ -1,0 +1,54 @@
+{
+  "name": "nft_transfer",
+  "summary": "Transfers tokens from one account to another",
+  "description": "Transfer tokens from one account to another. A basic token transfer. Transfer a token or tokens given a token_id. The token id can correspond to either a NonFungibleToken or FungibleToken  - this is differentiated by the implementation.",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "receiver_id",
+      "summary": "Receiving account id",
+      "description": "The valid NEAR account receiving the token",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "token_id",
+      "summary": "The TokenId to transfer",
+      "description": "The TokenId to transfer",
+      "schema": {
+        "$ref": "../../schemas/TokenId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "approval_id",
+      "summary": "Expected approval ID",
+      "description": "Expected approval ID. A number smaller than 2^53, and therefore representable as JSON.",
+      "schema": {
+        "$ref": "../../schemas/ApprovalId.json" 
+      },
+      "required": false
+    },
+    {
+      "name": "memo",
+      "summary": "Memo message to describe operation",
+      "description": "For use cases that may benefit from indexing or providing information for a transfer",
+      "schema": {
+        "$ref": "../../schemas/Memo.json"
+      },
+      "required": false
+    }
+  ],
+  "result": {
+    "name": "NFTTransferResult",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

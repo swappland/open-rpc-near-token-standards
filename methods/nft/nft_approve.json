@@ -1,0 +1,48 @@
+{
+  "name": "nft_approve",
+  "summary": "Add an approved account for a specific set of tokens",
+  "description": "Add an approved account for a specific set of tokens",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    },
+    {
+      "$ref": "../../tags/ApprovalManagement.json"
+    }
+  ],
+  "params": [{
+   "name": "token_id", 
+   "summary": "The token ids for which to add an approval",
+   "description": "The token ids for which to add an approval",
+   "schema": {
+     "$ref": "../../schemas/TokenId.json"
+   },
+   "required": true
+  },
+  {
+    "name": "account_id",
+    "summary": "The account to add to approvals",
+    "description": "The account to add to approvals",
+    "schema": {
+      "$ref": "../../schemas/AccountId.json"
+    },
+    "required": true
+  }, {
+    "name": "msg",
+    "summary": "optional string to be passed to `mt_on_approve`",
+    "description": "optional string to be passed to `mt_on_approve`",
+    "schema": {
+      "$ref": "../../schemas/Msg.json"
+    },
+    "required": false 
+  }
+],
+  "result": {
+    "name": "NftApproveResult",
+    "summary": "Void, if no `msg` given.",
+    "description": "Void, if no `msg` given. Otherwise, returns promise call to `mt_on_approve`, which can resolve with whatever it wants.",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "NFTToken",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "$ref": "./TokenId.json"
+    },
+    "owner_id": {
+      "$ref": "./AccountId.json"
+    },
+    "metadata": {
+      "$ref": "./NFTTokenMetadata.json"
+    },
+    "approved_account_ids": {
+      "$ref": "./ApprovalsObject.json"
+    }
+  },
+  "required": [
+    "token_id",
+    "owner_id"
+  ]
+}

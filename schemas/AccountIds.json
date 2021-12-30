@@ -1,0 +1,7 @@
+{
+  "title":"AccountIds",
+  "type":"array",
+  "items": [{
+    "$ref": "./AccountId.json"
+  }]
+}

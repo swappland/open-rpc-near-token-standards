@@ -1,0 +1,69 @@
+{
+    "openrpc": "1.0.0",
+    "info": {
+        "title": "SimpleNFT",
+        "version": "0.0.0-development"
+    },
+    "methods": [
+        {
+            "$ref": "../../methods/simple-nft/is_init.json"
+        },
+        {
+            "$ref": "../../methods/simple-nft/set_contract_royalty.json"
+        },
+        {
+            "$ref": "../../methods/simple-nft/set_token_royalty.json"
+        },
+        {
+            "$ref": "../../methods/simple-nft/get_contract_royalty.json"
+        },
+        {
+            "$ref": "../../methods/simple-nft/new.json"
+        },
+        {
+            "$ref": "../../methods/simple-nft/nft_mint.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_transfer.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_transfer_call.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_transfer_payout.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_resolve_transfer.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_token.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_tokens.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_tokens_for_owner.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_metadata.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_total_supply.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_supply_for_owner.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_approve.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_revoke.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_revoke_all.json"
+        },
+        {
+            "$ref": "../../methods/nft/nft_is_approved.json"
+        }
+    ]
+}

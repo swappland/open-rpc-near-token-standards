@@ -1,0 +1,7 @@
+{
+  "title": "Bids",
+  "type": "array",
+  "items": [{
+    "$ref": "./Bid.json"
+  }]
+}

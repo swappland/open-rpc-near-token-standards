@@ -1,0 +1,41 @@
+{
+  "name": "storage_deposit",
+  "summary": "Payable method that receives an attached deposit of Ⓝ for a given account",
+  "description": "Payable method that receives an attached deposit of Ⓝ for a given account. ",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    },
+    {
+      "$ref": "../../tags/StorageManagement.json"
+    }
+  ],
+  "params": [
+  {
+    "name": "account_id",
+    "summary": "Account to allocate storage for",
+    "description": "Account to allocate storage for",
+    "schema": {
+      "$ref": "../../schemas/AccountId.json"
+    },
+    "required": false
+  },
+  {
+    "name": "registration_only",
+    "summary": "Registration flag that if true will refund above minimum balance if accound didn't exist and full deposit if it exists.",
+    "description": "Registration flag that if true will refund above minimum balance if accound didn't exist and full deposit if it exists.",
+    "schema": {
+      "type": "boolean"
+    },
+    "required": false
+  }
+],
+  "result": {
+    "name": "StorageDepositResult",
+    "summary": "Returns the `StorageBalance` showing updated balances",
+    "description": "Returns the `StorageBalance` showing updated balances",
+    "schema": {
+      "$ref": "../../schemas/StorageBalance.json"
+    }
+  }
+}
