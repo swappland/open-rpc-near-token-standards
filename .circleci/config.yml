@@ -58,7 +58,7 @@ jobs:
       - run: npm install multi-semantic-release semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/exec @qiwi/semantic-release-gh-pages-plugin @open-rpc/semantic-release-plugin
       - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-ft/**,packages/ft-standard/**.packages/simple-nft/**
 
-  release-ft:
+  release-simple-ft:
     <<: *defaults
     docker:
       - image: circleci/node:15.9.0
@@ -66,7 +66,18 @@ jobs:
       - checkout
       - run: npm install
       - run: npm install multi-semantic-release semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/exec @qiwi/semantic-release-gh-pages-plugin @open-rpc/semantic-release-plugin
-      - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-nft/**,packages/nft-standard/**
+      - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-nft/**,packages/nft-standard/**,packages/ft-standard/**
+
+  release-ft-standard:
+    <<: *defaults
+    docker:
+      - image: circleci/node:15.9.0
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm install multi-semantic-release semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/exec @qiwi/semantic-release-gh-pages-plugin @open-rpc/semantic-release-plugin
+      - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-nft/**,packages/nft-standard/**,packages/simple-ft/**
+
 
   release:
     <<: *defaults
@@ -85,7 +96,7 @@ workflows:
       - build:
           filters: *filter-only-semantic-pr
 
-  release-ft:
+  release-simple-ft:
     jobs:
       - build:
           filters: *filter-only-master
@@ -94,12 +105,12 @@ workflows:
           type: approval
           requires:
             - build 
-      - release-ft:
+      - release-simple-ft:
           filters: *filter-only-master
           requires:
             - hold
 
-  release-nft:
+  release-ft-standard:
     jobs:
       - build:
           filters: *filter-only-master
@@ -108,7 +119,35 @@ workflows:
           type: approval
           requires:
             - build 
-      - release-nft:
+      - release-ft-standard:
+          filters: *filter-only-master
+          requires:
+            - hold
+
+  release-simple-nft:
+    jobs:
+      - build:
+          filters: *filter-only-master
+      - hold:
+          filters: *filter-only-master
+          type: approval
+          requires:
+            - build 
+      - release-simple-nft:
+          filters: *filter-only-master
+          requires:
+            - hold
+
+  release-nft-standard:
+    jobs:
+      - build:
+          filters: *filter-only-master
+      - hold:
+          filters: *filter-only-master
+          type: approval
+          requires:
+            - build 
+      - release-nft-standard:
           filters: *filter-only-master
           requires:
             - hold
