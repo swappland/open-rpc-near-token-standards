@@ -1,10 +1,10 @@
 {
-  "name": "@swappland/simple-ft-client",
+  "name": "@swappland/nft-standards-client",
   "version": "0.0.0-development",
-  "description": "Example simple ft client that includes extra methods not apart of the standard",
+  "description": "NFT client that encapsulates the standard methods for NEAR NFTs",
   "scripts": {
     "bundle:open": "mkdir -p build && openrpc-cli bundle -s openrpc.json > build/openrpc.json",
-    "gen:client": "open-rpc-generator generate -c simple-ft-gen-config.json",
+    "gen:client": "open-rpc-generator generate -c nft-standardards-gen-config.json",
     "build": "npm run bundle:open && npm run gen:client",
     "build:all": "npm run build && cd generated-client/custom/typescript && npm install && npm run build",
     "test": "npm run build:all"
