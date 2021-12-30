@@ -1,0 +1,33 @@
+{
+  "name": "nft_supply_for_owner",
+  "summary": "Get number of tokens owned by a given account",
+  "description":"Get number of tokens owned by a given account",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/EnumerationExtension.json"
+    }
+  ],
+  "params": [
+    {
+      "summary": "",
+      "description": "",
+      "name": "account_id",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    }
+  ],
+  "result": {
+    "name": "NFTTokensOwnerSupply",
+    "summary": "Total supply of nft tokens owned by an account",
+    "description": "Total supply of nft tokens owned by an account. Returns the number of non-fungible tokens owned by given `account_id` as",
+    "schema": {
+      "$ref": "../../schemas/U128.json"
+    },
+    "required": true
+  }
+}

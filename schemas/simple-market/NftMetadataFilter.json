@@ -1,0 +1,19 @@
+{
+  "title": "NftMetadataFilter",
+  "type": "object",
+  "properties": {
+    "token_id": {
+      "$ref": "../TokenId.json"
+    },
+    "token_id_regex": {
+      "$ref": "./TokenIdRegex.json"
+    },
+    "metadata": {
+      "$ref": "../NFTTokenMetadata.json"
+    },
+    "receiver": {
+      "$ref": "../AccountId.json"
+    }
+  },
+  "additionalProperties": false
+}

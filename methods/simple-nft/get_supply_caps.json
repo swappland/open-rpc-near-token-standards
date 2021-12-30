@@ -1,0 +1,21 @@
+
+{
+  "name": "get_supply_caps",
+  "summary": "Get token supply caps by type",
+  "description": "Get token supply caps by type",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    }
+  ],
+  "params": [
+  ],
+  "result": {
+    "name": "NftSimpleSupplyCapsByResult",
+    "summary": "Token supply caps returned",
+    "description": "Token supply caps",
+    "schema": {
+        "$ref": "../../schemas/simple-nft/TokenSupplyCaps.json"
+    }
+  }
+}

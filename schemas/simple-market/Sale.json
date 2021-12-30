@@ -1,0 +1,36 @@
+{
+  "title": "Sale",
+  "type": "object",
+  "properties": {
+    "owner_id": {
+      "$ref": "../AccountId.json"
+    },
+    "approval_id": {
+      "$ref": "../ApprovalId.json"
+    },
+    "nft_contract_id": {
+      "$ref": "../AccountId.json"
+    },
+    "token_id": {
+      "$ref": "../TokenId.json"
+    },
+    "sale_conditions": {
+      "$ref": "./SaleConditions.json"
+    },
+    "bids": {
+      "$ref": "./Bids.json"
+    },
+    "created_at": {
+      "$ref": "../U64.json"
+    }
+  },
+  "required": [
+    "owner_id",
+    "approval_id",
+    "nft_contract_id",
+    "token_id",
+    "sales_conditions",
+    "bids",
+    "created_at"
+  ]
+}

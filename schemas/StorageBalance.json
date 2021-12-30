@@ -1,0 +1,13 @@
+{
+  "title": "StorageBalance",
+  "type": "object",
+  "properties": {
+    "total": {
+      "$ref": "./U128.json"
+    },
+    "available":{
+      "$ref": "./U128.json"
+    } 
+  },
+  "required": ["total", "available"]
+}

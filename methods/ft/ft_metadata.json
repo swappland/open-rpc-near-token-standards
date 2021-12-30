@@ -1,0 +1,18 @@
+{
+  "name": "ft_metadata",
+  "summary": "Get the metadata for the contract",
+  "description": "Get the metadata for the contract",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    }
+  ],
+  "params": [
+  ],
+  "result": {
+    "name": "FtMetadataResult",
+    "schema": {
+      "$ref": "../../schemas/FTMetadata.json"
+    }
+  }
+}

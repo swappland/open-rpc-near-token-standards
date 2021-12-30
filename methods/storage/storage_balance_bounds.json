@@ -1,0 +1,22 @@
+{
+  "name": "storage_balance_bounds",
+  "summary": "Returns the minimum and maximum allowe balance amounts to interact with this contract",
+  "description": "Returns the minimum and maximum allowe balance amounts to interact with this contract",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/StorageManagement.json"
+    }
+  ],
+  "params": [],
+  "result": {
+    "name":"StorageBalanceBoundsResult",
+    "summary": "min` is the amount of tokens required to start",
+    "description": "This will  be returned for the method `storage_balance_bounds`. Both `min` and `max` are string representations of unsigned 128-bit integers.`min` is the amount of tokens required to start using this contract at all (eg to register with the contract). If a new contract user attaches `min` NEAR to a `storage_deposit` call, subsequent calls to `storage_balance_of` for this user must show their `total` equal to `min` and `available=0` .  A contract may implement `max` equal to `min` if it only charges for initial registration, and does not adjust per-user storage over time. A contract which implements `max` must refund deposits that would increase a user's storage balance beyond this amount.",
+    "schema": {
+      "$ref": "../../schemas/StorageBalanceBoundsObject.json"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "storage_withdraw",
+  "summary": "Withdraw specified amount of available Ⓝ for predecessor account.",
+  "description": "Withdraw specified amount of available Ⓝ for predecessor account. ",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    },
+    {
+      "$ref": "../../tags/StorageManagement.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "token_ids",
+      "summary": "The tokens to withdraw storage from",
+      "description": "The tokens to withdraw storage from",
+      "schema": {
+        "$ref": "../../schemas/TokenIds.json"
+      }
+    },{
+       "name": "amount",
+       "summary": "The amount of balance to refund",
+       "description": "The amount of balance to refund, if not specified then it's the total amount. Must require exactly 1 yoctoNEAR attached balance to prevent restricted function-call access-key call for wallet security.",
+       "schema": {
+         "$ref": "../../schemas/U128.json"
+       }
+    }
+  ],
+  "result":{
+    "name": "StorageWithdrawResult",
+    "summary": "Returns the StorageBalance structure showing updated balances",
+    "schema": {
+      "$ref": "../../schemas/StorageBalance.json"
+    },
+    "required": true
+
+  }
+}

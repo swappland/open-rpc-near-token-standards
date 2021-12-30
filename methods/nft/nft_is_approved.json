@@ -1,0 +1,47 @@
+{
+  "name": "nft_is_approved",
+  "summary": "Check if tokens are approved for transfer by a given account, optionally checking approval_id",
+  "description": "Check if tokens are approved for transfer by a given account, optionally checking approval_id",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/ApprovalManagement.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "token_id",
+      "summary": "The token ids for which to check approval",
+      "description": "The token ids for which to check approval",
+      "schema": {
+        "$ref": "../../schemas/TokenId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "approved_account_id",
+      "summary": "the account to check the existence of in `approvals`",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "approval_ids",
+      "summary": "an optional approval ID to check against current approval ID for given account",
+      "schema": {
+        "$ref": "../../schemas/ApprovalId.json"
+      }
+    }
+  ],
+  "result": {
+    "name": "NftApprovedResult",
+    "summary": "returns state of the approval for tokens given the approved_acccount_id",
+    "description": "returns state of the approval for tokens given the approved_acccount_id",
+    "schema": {
+      "type": "boolean"
+    }
+  }
+}

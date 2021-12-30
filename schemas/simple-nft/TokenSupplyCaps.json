@@ -1,0 +1,10 @@
+{
+  "title": "TokenSupplyCaps",
+  "type": "object",
+  "properties": {
+
+  },
+  "additionalProperties": {
+    "type": "integer"
+  }
+}

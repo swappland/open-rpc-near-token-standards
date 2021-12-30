@@ -1,0 +1,33 @@
+{
+  "name": "storage_balance_of",
+  "summary": "Returns the storage balance of an account for set of token_ids",
+  "description": "Returns the storage balance of an account for set of token_ids. If the `account_id` is not registered it will return `null`",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/StorageManagement.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "account_id",
+      "summary": "Account to allocate storage for",
+      "description": "Account to allocate storage for",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true 
+    }
+  ],
+  "result": {
+    "name": "StorageBalanceOfResult",
+    "summary": "Storage balance of the `account_id`",
+    "description": "Storage balance of the `account_id`",
+    "schema": {
+      "$ref": "../../schemas/StorageBalance.json"
+    },
+    "required": false 
+  }
+}

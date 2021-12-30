@@ -1,0 +1,13 @@
+{
+  "title":"StorageBalanceBoundsObject",
+  "type": "object",
+  "properties": {
+    "min": {
+      "$ref": "./U128.json"
+    },
+    "max": {
+
+      "$ref": "./U128.json"
+    }
+  }
+}

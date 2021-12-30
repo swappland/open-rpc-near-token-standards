@@ -1,0 +1,5 @@
+{
+  "title": "FTMetadataDecimals",
+  "type": "integer",
+  "description": "number of decimals for the token useful for FT related tokens"
+}

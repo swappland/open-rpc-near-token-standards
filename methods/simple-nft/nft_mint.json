@@ -1,0 +1,64 @@
+{
+  "name": "nft_mint",
+  "summary": "Mint an NFT token for simple contract",
+  "description": "Mint an nft to an account",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [{
+   "name": "token_id", 
+   "summary": "The token ids for which to add an approval",
+   "description": "The token ids for which to add an approval",
+   "schema": {
+     "$ref": "../../schemas/TokenId.json"
+   },
+   "required": true 
+  },
+  {
+    "name": "metadata",
+    "summary": "The token metadata associated with the token",
+    "description": "The token metadata associated with the token",
+    "schema": {
+      "$ref": "../../schemas/NFTTokenMetadata.json"
+    },
+    "required": true
+  }, 
+  {
+    "name": "perpetual_royalties",
+    "summary": "Perpetual royalty payout structure for nft",
+    "description": "Perpetual royalty payout structure for nft",
+    "schema": {
+      "$ref": "../../schemas/simple-nft/RoyaltyMap.json"
+    },
+    "required": false 
+  }, 
+  {
+    "name": "receiver_id",
+    "summary": "optional account_id to receive the token",
+    "description": "optional account_id to receive the token",
+    "schema": {
+      "$ref": "../../schemas/AccountId.json"
+    },
+    "required": false 
+  },
+  {
+    "name": "token_type",
+    "summary": "optional token_type to specify what token it is",
+    "description": "optional token_type to specify what token it is",
+    "schema": {
+      "$ref": "../../schemas/simple-nft/TokenType.json"
+    },
+    "required": false 
+  }
+],
+  "result": {
+    "name": "NftSimpleMintResult",
+    "summary": "Void",
+    "description": "Void",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

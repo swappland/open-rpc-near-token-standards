@@ -1,0 +1,36 @@
+{
+  "name": "nft_tokens",
+  "summary": "Get a list of all tokens. ",
+  "description": "Get a list of all tokens. Returning a list of `NFToken` with respect to pagination.",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/EnumerationExtension.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "from_index",
+      "schema": {
+        "$ref": "../../schemas/PaginationFromIndex.json"
+      }
+    },
+    {
+      "name": "limit",
+      "schema": {
+        "$ref": "../../schemas/PaginationLimit.json"
+      }
+    }
+  ],
+  "result": {
+    "name": "NFTokensResult",
+    "summary": "List of all tokens in the contract truncated by the pagination limits.",
+    "description": "List of all tokens in the contract truncated by the pagination limits. An empty array represents no tokens",
+    "schema": {
+      "$ref": "../../schemas/NFTTokens.json"
+    },
+    "required": true
+  }
+}

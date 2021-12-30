@@ -1,0 +1,29 @@
+{
+  "name": "mint",
+  "summary": "Mint some tokens for simple contract",
+  "description": "Mint some tokens  to an account",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "amount",
+      "summary": "The amount of tokens to transfer",
+      "description": "The amount of tokens to transfer",
+      "schema": {
+        "$ref": "../../schemas/U128.json"
+      },
+      "required": true
+    }
+  ],
+  "result": {
+    "name": "FtSimpleMintResult",
+    "summary": "Void",
+    "description": "Void",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "ft_balance_of",
+  "summary": "Get the balance of an account id for the contract",
+  "description": "Get the balance of an account id for the contract",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "account_id",
+      "summary": "Account id to get the balance of",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      }
+    }
+  ],
+  "result": {
+    "name": "FtBalanceOfResult",
+    "schema": {
+      "$ref": "../../schemas/U128.json"
+    }
+  }
+}

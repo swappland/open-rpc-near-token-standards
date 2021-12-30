@@ -1,0 +1,5 @@
+{
+      "type": "string",
+      "title": "FTMetadataReferenceHash",
+      "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+}

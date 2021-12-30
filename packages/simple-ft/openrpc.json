@@ -1,0 +1,48 @@
+{
+    "openrpc": "1.0.0",
+    "info": {
+        "title": "SimpleFT",
+        "version": "0.0.0-development"
+    },
+    "methods": [
+        {
+            "$ref": "./simple-ft/methods/mint.json"
+        },
+        {
+            "$ref": "./simple-ft/methods/is_init.json"
+        },
+        {
+            "$ref": "./simple-ft/methods/new.json"
+        },
+        {
+            "$ref": "./ft/methods/ft_transfer.json"
+        },
+        {
+            "$ref": "./ft/methods/ft_transfer_call.json"
+        },
+        {
+            "$ref": "./ft/methods/ft_balance_of.json"
+        },
+        {
+            "$ref": "./ft/methods/ft_total_supply.json"
+        },
+        {
+            "$ref": "./ft/methods/ft_metadata.json"
+        },
+        {
+            "$ref": "./storage/methods/storage_balance_bounds.json"
+        },
+        {
+            "$ref": "./storage/methods/storage_balance_of.json"
+        },
+        {
+            "$ref": "./storage/methods/storage_deposit.json"
+        },
+        {
+            "$ref": "./storage/methods/storage_unregister.json"
+        },
+        {
+            "$ref": "./storage/methods/storage_withdraw.json"
+        }
+      ]
+}

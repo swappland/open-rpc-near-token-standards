@@ -1,0 +1,5 @@
+{
+  "title": "Memo",
+  "description": "A message to describe an operation",
+  "type": "string"
+}

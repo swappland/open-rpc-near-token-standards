@@ -1,0 +1,25 @@
+{
+  "title": "FTMetadata",
+  "type": "object",
+  "properties": {
+    "name": {
+      "$ref": "./FTMetadataName.json"
+    },
+    "reference": {
+      "$ref": "./FTMetadataReference.json"
+    },
+    "reference_hash": {
+      "$ref": "./FTMetadataReferenceHash.json"
+    },
+    "symbol": {
+      "$ref": "./FTMetadataSymbol.json"
+    },
+    "decimals": {
+      "$ref": "./FTMetadataDecimals.json"
+    },
+    "version": {
+      "$ref": "./FTMetadataVersion.json"
+    }
+  },
+  "required": ["version", "name", "symbol", "reference", "reference_hash", "decimals"]
+}

@@ -1,0 +1,53 @@
+{
+  "title": "NFTContractMetadata",
+  "description": "Metadata for tokens at class level",
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "NFTContractMetadataName",
+      "type": "string",
+      "description": "ex. 'Silver Swords' or 'Metaverse 3'"
+    },
+    "symbol": {
+      "title": "NFTContractMetadataSymbol",
+      "type": "string",
+      "description": "ex. MOCHI"
+    },
+    "spec": {
+      "title": "NFTContractMetadataSpec",
+      "type": "string",
+      "description": "essentially a version like nft-1.0.0"
+    },
+    "icon": {
+      "title": "NFTContractMetadataIcon",
+      "type": "string",
+      "description": "Data URL"
+    },
+    "decimals": {
+      "title": "NFTContractMetadataDecimals",
+      "type": "string",
+      "description": "number of decimals for the token useful for FT related tokens"
+    },
+    "base_uri": {
+      "title": "NFTContractMetadataBaseUri",
+      "type": "string",
+      "description": "entralized gateway known to have reliable access to decentralized storage assets referenced by `reference` or `media` URLs"
+    },
+    "reference": {
+      "title": "NFTContractMetadataReference",
+      "type": "string",
+      "description":"URL to a JSON file with more info" 
+    },
+    "reference_hash": {
+      "title": "NFTContractMetadataReferenceHash",
+      "type": "string",
+      "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+    },
+    "copies": {
+      "title": "NFTContractMetadataCopies",
+      "type": "number",
+      "description": "number of copies of this set of metadata in existence when token was minted."
+    }
+  },
+  "required": ["name", "symbol", "spec"]
+}
