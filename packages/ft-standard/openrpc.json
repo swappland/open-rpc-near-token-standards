@@ -1,0 +1,39 @@
+{
+    "openrpc": "1.0.0",
+    "info": {
+        "title": "FTStandard",
+        "version": "0.0.0-development"
+    },
+    "methods": [
+        {
+            "$ref": "../../methods/ft/ft_transfer.json"
+        },
+        {
+            "$ref": "../../methods/ft/ft_transfer_call.json"
+        },
+        {
+            "$ref": "../../methods/ft/ft_balance_of.json"
+        },
+        {
+            "$ref": "../../methods/ft/ft_total_supply.json"
+        },
+        {
+            "$ref": "../../methods/ft/ft_metadata.json"
+        },
+        {
+            "$ref": "../../methods/storage/storage_balance_bounds.json"
+        },
+        {
+            "$ref": "../../methods/storage/storage_balance_of.json"
+        },
+        {
+            "$ref": "../../methods/storage/storage_deposit.json"
+        },
+        {
+            "$ref": "../../methods/storage/storage_unregister.json"
+        },
+        {
+            "$ref": "../../methods/storage/storage_withdraw.json"
+        }
+      ]
+}

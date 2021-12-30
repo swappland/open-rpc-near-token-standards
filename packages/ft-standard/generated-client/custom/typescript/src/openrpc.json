@@ -1,0 +1,485 @@
+{
+  "openrpc": "1.0.0",
+  "info": {
+    "title": "FTStandard",
+    "version": "0.0.0-development"
+  },
+  "methods": [
+    {
+      "name": "ft_transfer",
+      "summary": "Transfers tokens from one account to another",
+      "description": "Transfer tokens from one account to another. A basic token transfer.",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "receiver_id",
+          "summary": "Receiving account id",
+          "description": "The valid NEAR account receiving the token",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "amount",
+          "summary": "The amount of tokens to transfer for token_id",
+          "description": "The amount of tokens to transfer for token_id. The amount of tokens to transfer must be 1 or greater",
+          "schema": {
+            "title": "U128",
+            "type": "string",
+            "description": "U128 integer as string"
+          },
+          "required": true
+        },
+        {
+          "name": "memo",
+          "summary": "Memo message to describe operation",
+          "description": "For use cases that may benefit from indexing or providing information for a transfer",
+          "schema": {
+            "title": "Memo",
+            "description": "A message to describe an operation",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "FtTransferResult",
+        "schema": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "name": "ft_transfer_call",
+      "description": "Transfer tokens from one account to another contract. Transfer token/s and call a method on a receiver contract. A successful workflow will end in a success execution outcome to the callback on the MultiToken contract at the method `mt_resolve_transfer`. You can think of this as being similar to attaching NEAR tokens as a `deposit` to a function call. It allows you to attach any FungibleToken or NonFungibleToken in a call to a receiver contract.  ",
+      "summary": "Transfers tokens from one account to another contract",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        }
+      ],
+      "params": [
+        {
+          "name": "receiver_id",
+          "summary": "Receiving account id",
+          "description": "The valid NEAR account receiving the token",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        },
+        {
+          "name": "amount",
+          "summary": "The amount of tokens to transfer",
+          "description": "The amount of tokens to transfer",
+          "schema": {
+            "title": "U128",
+            "type": "string",
+            "description": "U128 integer as string"
+          },
+          "required": true
+        },
+        {
+          "name": "memo",
+          "summary": "Memo message to describe operation",
+          "description": "For use cases that may benefit from indexing or providing information for a transfer",
+          "schema": {
+            "title": "Memo",
+            "description": "A message to describe an operation",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "FtTransferCallResult",
+        "summary": "The amount optionally returned to sender",
+        "description": "The amount returned to the sender, if resolve implmented",
+        "schema": {
+          "title": "U128",
+          "type": "string",
+          "description": "U128 integer as string"
+        },
+        "required": false
+      }
+    },
+    {
+      "name": "ft_balance_of",
+      "summary": "Get the balance of an account id for the contract",
+      "description": "Get the balance of an account id for the contract",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        }
+      ],
+      "params": [
+        {
+          "name": "account_id",
+          "summary": "Account id to get the balance of",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          }
+        }
+      ],
+      "result": {
+        "name": "FtBalanceOfResult",
+        "schema": {
+          "title": "U128",
+          "type": "string",
+          "description": "U128 integer as string"
+        }
+      }
+    },
+    {
+      "name": "ft_total_supply",
+      "summary": "Get the total supply of tokens in the contract",
+      "description": "Get the total supply of tokens in the contract",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        }
+      ],
+      "params": [],
+      "result": {
+        "name": "FtTotalSupplyResult",
+        "schema": {
+          "title": "U128",
+          "type": "string",
+          "description": "U128 integer as string"
+        }
+      }
+    },
+    {
+      "name": "ft_metadata",
+      "summary": "Get the metadata for the contract",
+      "description": "Get the metadata for the contract",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        }
+      ],
+      "params": [],
+      "result": {
+        "name": "FtMetadataResult",
+        "schema": {
+          "title": "FTMetadata",
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "FtMetadataName",
+              "type": "string"
+            },
+            "reference": {
+              "type": "string",
+              "title": "FTMetadataReference",
+              "description": "URL to an off-chain JSON file with more info."
+            },
+            "reference_hash": {
+              "type": "string",
+              "title": "FTMetadataReferenceHash",
+              "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+            },
+            "symbol": {
+              "title": "FTMetadataSymbol",
+              "type": "string",
+              "description": "ex. MOCHI"
+            },
+            "decimals": {
+              "title": "FTMetadataDecimals",
+              "type": "integer",
+              "description": "number of decimals for the token useful for FT related tokens"
+            },
+            "version": {
+              "title": "FTMetadataVersion",
+              "type": "string",
+              "description": "Version of token typically x.x.x major.minor.patch"
+            }
+          },
+          "required": [
+            "version",
+            "name",
+            "symbol",
+            "reference",
+            "reference_hash",
+            "decimals"
+          ]
+        }
+      }
+    },
+    {
+      "name": "storage_balance_bounds",
+      "summary": "Returns the minimum and maximum allowe balance amounts to interact with this contract",
+      "description": "Returns the minimum and maximum allowe balance amounts to interact with this contract",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "StorageManagement",
+          "description": "Storage Management Extension Tag"
+        }
+      ],
+      "params": [],
+      "result": {
+        "name": "StorageBalanceBoundsResult",
+        "summary": "min` is the amount of tokens required to start",
+        "description": "This will  be returned for the method `storage_balance_bounds`. Both `min` and `max` are string representations of unsigned 128-bit integers.`min` is the amount of tokens required to start using this contract at all (eg to register with the contract). If a new contract user attaches `min` NEAR to a `storage_deposit` call, subsequent calls to `storage_balance_of` for this user must show their `total` equal to `min` and `available=0` .  A contract may implement `max` equal to `min` if it only charges for initial registration, and does not adjust per-user storage over time. A contract which implements `max` must refund deposits that would increase a user's storage balance beyond this amount.",
+        "schema": {
+          "title": "StorageBalanceBoundsObject",
+          "type": "object",
+          "properties": {
+            "min": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            },
+            "max": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "storage_balance_of",
+      "summary": "Returns the storage balance of an account for set of token_ids",
+      "description": "Returns the storage balance of an account for set of token_ids. If the `account_id` is not registered it will return `null`",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        },
+        {
+          "name": "StorageManagement",
+          "description": "Storage Management Extension Tag"
+        }
+      ],
+      "params": [
+        {
+          "name": "account_id",
+          "summary": "Account to allocate storage for",
+          "description": "Account to allocate storage for",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": true
+        }
+      ],
+      "result": {
+        "name": "StorageBalanceOfResult",
+        "summary": "Storage balance of the `account_id`",
+        "description": "Storage balance of the `account_id`",
+        "schema": {
+          "title": "StorageBalance",
+          "type": "object",
+          "properties": {
+            "total": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            },
+            "available": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            }
+          },
+          "required": [
+            "total",
+            "available"
+          ]
+        },
+        "required": false
+      }
+    },
+    {
+      "name": "storage_deposit",
+      "summary": "Payable method that receives an attached deposit of Ⓝ for a given account",
+      "description": "Payable method that receives an attached deposit of Ⓝ for a given account. ",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        },
+        {
+          "name": "StorageManagement",
+          "description": "Storage Management Extension Tag"
+        }
+      ],
+      "params": [
+        {
+          "name": "account_id",
+          "summary": "Account to allocate storage for",
+          "description": "Account to allocate storage for",
+          "schema": {
+            "title": "AccountId",
+            "type": "string",
+            "description": "AccountId for the near account"
+          },
+          "required": false
+        },
+        {
+          "name": "registration_only",
+          "summary": "Registration flag that if true will refund above minimum balance if accound didn't exist and full deposit if it exists.",
+          "description": "Registration flag that if true will refund above minimum balance if accound didn't exist and full deposit if it exists.",
+          "schema": {
+            "type": "boolean"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "StorageDepositResult",
+        "summary": "Returns the `StorageBalance` showing updated balances",
+        "description": "Returns the `StorageBalance` showing updated balances",
+        "schema": {
+          "title": "StorageBalance",
+          "type": "object",
+          "properties": {
+            "total": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            },
+            "available": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            }
+          },
+          "required": [
+            "total",
+            "available"
+          ]
+        }
+      }
+    },
+    {
+      "name": "storage_unregister",
+      "summary": "Unregister the predecessor account and return the storage NEAR deposit back",
+      "description": "Unregister the predecessor account and return the storage NEAR deposit back. Requires 1yoctoNEAR attached balance to prevent function-call access-key call",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        },
+        {
+          "name": "StorageManagement",
+          "description": "Storage Management Extension Tag"
+        }
+      ],
+      "params": [
+        {
+          "name": "force",
+          "summary": "The force flag set to true will ignore account balances and burn the tokens and close the account",
+          "description": "The force flag set to true will ignore account balances and burn the tokens and close the account",
+          "schema": {
+            "type": "boolean"
+          },
+          "required": false
+        }
+      ],
+      "result": {
+        "name": "StorageUnregisterResult",
+        "summary": "An array of booleans corresponding to the `token_ids`. `false` if token was already unregistered true other wise",
+        "schema": {
+          "type": "array",
+          "items": [
+            {
+              "type": "boolean"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "storage_withdraw",
+      "summary": "Withdraw specified amount of available Ⓝ for predecessor account.",
+      "description": "Withdraw specified amount of available Ⓝ for predecessor account. ",
+      "tags": [
+        {
+          "name": "change",
+          "description": "change method"
+        },
+        {
+          "name": "StorageManagement",
+          "description": "Storage Management Extension Tag"
+        }
+      ],
+      "params": [
+        {
+          "name": "token_ids",
+          "summary": "The tokens to withdraw storage from",
+          "description": "The tokens to withdraw storage from",
+          "schema": {
+            "title": "TokenIds",
+            "type": "array",
+            "items": [
+              {
+                "title": "TokenId",
+                "description": "Token identifier that corresponds to an id",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        {
+          "name": "amount",
+          "summary": "The amount of balance to refund",
+          "description": "The amount of balance to refund, if not specified then it's the total amount. Must require exactly 1 yoctoNEAR attached balance to prevent restricted function-call access-key call for wallet security.",
+          "schema": {
+            "title": "U128",
+            "type": "string",
+            "description": "U128 integer as string"
+          }
+        }
+      ],
+      "result": {
+        "name": "StorageWithdrawResult",
+        "summary": "Returns the StorageBalance structure showing updated balances",
+        "schema": {
+          "title": "StorageBalance",
+          "type": "object",
+          "properties": {
+            "total": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            },
+            "available": {
+              "title": "U128",
+              "type": "string",
+              "description": "U128 integer as string"
+            }
+          },
+          "required": [
+            "total",
+            "available"
+          ]
+        },
+        "required": true
+      }
+    }
+  ]
+}
