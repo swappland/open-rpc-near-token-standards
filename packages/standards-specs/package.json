@@ -7,9 +7,6 @@
     "build:all": "npm run build",
     "test": "npm run build:all"
   },
-  "files":[
-    "specs/**/*.json"
-  ],
   "publishConfig": {
     "access": "public"
   },
