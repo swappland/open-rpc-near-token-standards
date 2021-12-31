@@ -86,7 +86,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm install multi-semantic-release semantic-release @semantic-release/changelog @semantic-release/git @semantic-release/github @semantic-release/npm @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/exec @qiwi/semantic-release-gh-pages-plugin @open-rpc/semantic-release-plugin
-      - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-**/**,packages/nft-**/**,packages/ft-**/**
+      - run: ./node_modules/.bin/multi-semantic-release --ignore-packages=packages/simple-*/**,packages/nft-*/**,packages/ft-*/**
 
 
   release:
