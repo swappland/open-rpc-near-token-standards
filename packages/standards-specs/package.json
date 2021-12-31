@@ -1,7 +1,7 @@
 {
   "name": "@swappland/open-rpc-token-standards-specs",
   "version": "0.0.0-development",
-  "description": "all token standard open-rpc schemas,components,methods to build from",
+  "description": "all token standard open-rpc schemas, components, methods to build from",
   "scripts": {
     "build": "mkdir -p specs && cp -r ../../methods specs  && cp -r ../../schemas specs && cp -r ../../tags specs",
     "build:all": "npm run build",
