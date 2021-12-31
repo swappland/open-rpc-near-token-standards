@@ -8,9 +8,7 @@
     "test": "npm run build:all"
   },
   "files":[
-    "specs/**/*.json",
-    "/schemas/**/*.json",
-    "../../tags/**/*.json"
+    "specs/**/*.json"
   ],
   "publishConfig": {
     "access": "public"
@@ -19,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/swappland/open-rpc-near-token-standards"
   },
-  "author": "",
+  "author": "zcstarr",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/swappland/open-rpc-near-token-standards/issues"
