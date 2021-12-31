@@ -1,0 +1,57 @@
+{
+  "name": "new",
+  "summary": "Instantiate ft contract",
+  "description": "Instantiate ft contract",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "owner_id",
+      "summary": "The owner of the contract",
+      "description": "The owner of the contract",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "metadata",
+      "summary": "The metadata for the token contract",
+      "description": "The metadata for the token contract",
+      "schema": {
+        "$ref": "../../schemas/NFTContractMetadata.json"
+      },
+      "required": true
+    },
+    {
+      "name": "supply_cap_by_type",
+      "summary": "Map of token type to supply amounts",
+      "description": "Map of token type to supply amounts",
+      "schema": {
+        "$ref": "../../schemas/simple-nft/TokenSupplyCaps.json"
+      },
+      "required": false 
+    },
+    {
+      "name": "unlocked",
+      "summary": "locked or unlocked flag",
+      "description": "locked or unlocked flag",
+      "schema" : {
+        "$ref": "../../schemas/simple-nft/Unlocked.json"
+      },
+      "required": false 
+    }
+
+  ],
+  "result": {
+    "name": "FtSimpleNewResult",
+    "summary": "Void",
+    "description": "Void",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

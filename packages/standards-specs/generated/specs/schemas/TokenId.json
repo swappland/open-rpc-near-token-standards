@@ -1,0 +1,5 @@
+{
+  "title": "TokenId",
+  "description": "Token identifier that corresponds to an id",
+  "type": "string"
+}

@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "All token standard open-rpc schemas, components, methods to build from",
   "scripts": {
-    "build": "mkdir -p specs && cp -r ../../methods specs  && cp -r ../../schemas specs && cp -r ../../tags specs",
+    "build": "mkdir -p generated/specs && cp -r ../../methods generated/specs  && cp -r ../../schemas generated/specs && cp -r ../../tags generated/specs",
     "build:all": "npm run build",
     "test": "npm run build:all"
   },

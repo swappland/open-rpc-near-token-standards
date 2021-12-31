@@ -1,0 +1,44 @@
+{
+  "name": "nft_payout",
+  "summary": "Retuns the `Payout` struct for a given `token_id` and `balance`",
+  "description": "Given a `token_id` and NEAR-denominated balance, return the `Payout` struct for the given token. Panic if the length of the payout exceeds  `max_len_payout.`",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    }
+  ],
+  "paramStructure": "by-name",
+  "params": [
+    {
+      "name": "token_id",
+      "summary": "The TokenId to transfer",
+      "description": "The TokenId to transfer",
+      "schema": {
+        "$ref": "../../schemas/TokenId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "balance",
+      "summary": "The amount for the nft contract to determine payout",
+      "description": "The amount for the nft contract to determine payout",
+      "schema": {
+        "$ref": "../../schemas/U128.json"
+      }
+    },
+    {
+      "name": "max_len_payout",
+      "summary": "The maximum number of accounts to pay out",
+      "description": "The maximum number of accounts that can be paid out",
+      "schema" : {
+        "$ref":"../../schemas/u32.json"
+      }
+    }
+  ],
+  "result": {
+    "name": "NFTPayoutResult",
+    "schema": {
+      "$ref":"../../schemas/NFTPayout.json"
+    }
+  }
+}

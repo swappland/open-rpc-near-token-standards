@@ -1,0 +1,7 @@
+{
+  "title": "NFTTokens",
+  "type": "array",
+  "items": [{
+    "$ref": "./NFTToken.json"
+  }]
+}

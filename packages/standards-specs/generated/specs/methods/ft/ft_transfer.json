@@ -1,0 +1,45 @@
+{
+  "name": "ft_transfer",
+  "summary": "Transfers tokens from one account to another",
+  "description": "Transfer tokens from one account to another. A basic token transfer.",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "receiver_id",
+      "summary": "Receiving account id",
+      "description": "The valid NEAR account receiving the token",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "amount",
+      "summary":"The amount of tokens to transfer for token_id",
+      "description": "The amount of tokens to transfer for token_id. The amount of tokens to transfer must be 1 or greater",
+      "schema": {
+        "$ref": "../../schemas/U128.json"
+      },
+      "required": true
+    },
+    {
+      "name": "memo",
+      "summary": "Memo message to describe operation",
+      "description": "For use cases that may benefit from indexing or providing information for a transfer",
+      "schema": {
+        "$ref": "../../schemas/Memo.json"
+      },
+      "required": false
+    }
+  ],
+  "result": {
+    "name": "FtTransferResult",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "nft_resolve_transfer",
+  "summary": "Used when MultiTokens are transferred using `mt_transfer_call`",
+  "description": "Used when MultiTokens are transferred using `mt_transfer_call`. This is the method that's called after `mt_on_transfer` implemented on the multitoken contract",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "sender_id",
+      "summary": "sender of `nft_transfer_call`",
+      "description": "sender of `nft_transfer_call`",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "previous_owner_id",
+      "summary": "The account that owned the tokens prior to it being transferred with `mt_transfer_call`",
+      "description": "The account that owned the tokens prior to it being transferred",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "receiver_id",
+      "summary": "The `receiver_id` argument of `nft_transfer_call`",
+      "description": "The `receiver_id` argument of `nft_transfer_call`, the account being transfered to",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "token_id",
+      "summary": "The `token_ids` argument given to `nft_transfer_call`",
+      "description": "The `token_ids` argument given to `nft_transfer_call`",
+      "schema": {
+        "$ref": "../../schemas/TokenId.json"
+      }
+    },
+    {
+      "name": "approved_account_ids",
+      "summary": "Approved accounts in case of revert.",
+      "description": "Approved accounts in case of revert. In this case it may be multiple sets of approvals . If specified the length and order must correspond to token_ids",
+      "schema": {
+        "type":"array",
+        "items": [{
+          "oneOf": [{
+            "type":"null"
+          },{
+            "$ref": "../../schemas/AccountIds.json"
+          }]
+        }]
+      },
+      "required": false
+    }
+  ],
+  "result": {
+    "name": "NftResolveTransferResult",
+    "summary": "Returns the amount of how many total tokens were spent by `sender_id`, corresponding to the `token_id`.Returns a vector of  amounts for the tokens that should be returned to `sender_id`",
+    "description": "Returns the amount of how many total tokens were spent by `sender_id`, corresponding to the `token_id`.Returns a vector of  amounts for the tokens that should be returned to `sender_id`",
+    "schema": {
+          "$ref": "../../schemas/U128.json"
+    },
+    "required": true 
+  }
+}

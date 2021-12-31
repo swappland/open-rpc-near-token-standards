@@ -1,0 +1,49 @@
+{
+  "name": "nft_tokens_for_owner",
+  "summary": "Get a list of all tokens owned by the account specified. ",
+  "description": "Get a list of all tokens owned by the account specified. Returning a list of `NFToken` with respect to pagination.",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/EnumerationExtension.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "account_id",
+      "summary": "the owner account id",
+      "description": "the owner account id",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "from_index",
+      "summary": "a string representing an unsigned 128-bit integer, representing the starting index of tokens to return",
+      "description": "a string representing an unsigned 128-bit integer, representing the starting index of tokens to return",
+      "schema": {
+        "$ref": "../../schemas/PaginationFromIndex.json"
+      }
+    },
+    {
+      "name": "limit",
+      "summary": "the maximum number of tokens to return",
+      "description": "the maximum number of tokens to return",
+      "schema": {
+        "$ref": "../../schemas/PaginationLimit.json"
+      }
+    }
+  ],
+  "result": {
+    "name": "NFTokensResult",
+    "summary": "List of all tokens in the contract truncated by the pagination limits.",
+    "description": "List of all tokens in the contract truncated by the pagination limits. An empty array represents no tokens",
+    "schema": {
+      "$ref": "../../schemas/NFTTokens.json"
+    },
+    "required": true
+  }
+}

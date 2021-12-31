@@ -1,0 +1,29 @@
+{
+  "name": "set_contract_royalty",
+  "summary": "Set royalty for the contract",
+  "description": "Set royalty for the contract",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "contract_royalty",
+      "summary": "Set the royalty amount for the contract",
+      "description": "Set the royalty amount for the contract",
+      "schema": {
+        "$ref": "../../schemas/simple-nft/ContractRoyalty.json"
+      },
+      "required": true
+    }
+  ],
+  "result": {
+    "name": "NftSimpleRoyaltyResult",
+    "summary": "Void",
+    "description": "Void",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

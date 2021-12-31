@@ -1,0 +1,12 @@
+{
+  "title": "ApprovalIds",
+  "type": "array",
+  "items": [{
+      "oneOf": [{
+        "$ref": "./ApprovalId.json"
+      },
+     {
+      "type": "null"
+    }]
+  }]
+}

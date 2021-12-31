@@ -1,0 +1,5 @@
+{
+  "title": "Msg",
+  "description": "message for receiving contracts",
+  "type": "string"
+}

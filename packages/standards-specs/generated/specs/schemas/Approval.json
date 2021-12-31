@@ -1,0 +1,9 @@
+{
+  "title": "Approval",
+  "type": "object",
+  "properties": {
+    "approval_id": {
+      "$ref": "./ApprovalId.json"
+    }
+  }
+}

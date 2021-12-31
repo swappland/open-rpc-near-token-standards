@@ -1,0 +1,9 @@
+{
+  "title": "RoyaltyMap",
+  "type": "object",
+  "properties": {
+  },
+  "additionalProperties": {
+    "type": "integer"
+  }
+}

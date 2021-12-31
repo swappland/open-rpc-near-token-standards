@@ -1,0 +1,21 @@
+{
+  "name": "nft_metadata",
+  "summary": "Get contract level metadata",
+  "description": "Get contract level metadata",
+  "tags": [
+    {
+      "$ref": "../../tags/view.json"
+    },
+    {
+      "$ref": "../../tags/MetadataExtension.json"
+    }
+  ],
+  "params": [],
+  "result": {
+    "name": "NFTContractMetadataResult",
+    "summary": "Contract metadata",
+    "schema": {
+      "$ref": "../../schemas/NFTContractMetadata.json"
+    }
+  }
+}

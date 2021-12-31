@@ -1,0 +1,5 @@
+{
+  "title": "AccountId",
+  "type": "string",
+  "description": "AccountId for the near account"
+}

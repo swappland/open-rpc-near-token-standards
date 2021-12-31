@@ -1,0 +1,62 @@
+{
+  "name": "nft_transfer_payout",
+  "summary": "Transfers tokens from one account to another with royalty payout",
+  "description": "Transfer tokens from one account to another with royalty payout calculation. Calling contract receives resulting payout computation",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    }
+  ],
+  "paramStructure": "by-name",
+  "params": [
+    {
+      "name": "receiver_id",
+      "summary": "Receiving account id",
+      "description": "The valid NEAR account receiving the token",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "token_id",
+      "summary": "The TokenId to transfer",
+      "description": "The TokenId to transfer",
+      "schema": {
+        "$ref": "../../schemas/TokenId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "balance",
+      "summary": "The amount for the nft contract to determine payout",
+      "description": "The amount for the nft contract to determine payout",
+      "schema": {
+        "$ref": "../../schemas/U128.json"
+      }
+    },
+    {
+      "name": "max_len_payout",
+      "summary": "The maximum number of accounts to pay out",
+      "description": "The maximum number of accounts that can be paid out",
+      "schema" : {
+        "$ref":"../../schemas/u32.json"
+      }
+    },
+    {
+      "name": "approval_id",
+      "summary": "Expected approval ID",
+      "description": "Expected approval ID. A number smaller than 2^53, and therefore representable as JSON.",
+      "schema": {
+        "$ref": "../../schemas/ApprovalId.json" 
+      },
+      "required": false
+    }
+  ],
+  "result": {
+    "name": "NFTTransferPayout",
+    "schema": {
+      "$ref":"../../schemas/NFTPayout.json"
+    }
+  }
+}

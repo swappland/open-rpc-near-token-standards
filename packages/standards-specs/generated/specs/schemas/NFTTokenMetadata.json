@@ -1,0 +1,61 @@
+{
+  "title": "NFTTokenMetadata",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "NFTTokenMetadataTitle",
+      "description": "ex. Parcel #5055"
+    },
+    "description": {
+      "type": "string",
+      "title": "NFTTokenMetadataDesc",
+      "description": "free-form description"
+    },
+    "media": {
+      "type": "string",
+      "title": "NFTTokenMetadataMedia",
+      "description": "URL to associated media, preferably to decentralized, content-addressed storage"
+    },
+    "media_hash": {
+      "type": "string",
+      "title": "NFTTokenMetadataMediaHash",
+      "description": "Base64-encoded sha256 hash of content referenced by the `media` field. Required if `media` is included."
+    },
+    "issued_at": {
+      "type": "string",
+      "title": "NFTokenMetadataIssuedAt",
+      "description": "When token was issued or minted, Unix epoc in milliseconds"
+    },
+    "expires_at": {
+      "type": "string",
+      "title": "NFTokenMetadataExpiresAt",
+      "description": "When token expires, Unix epoch in milliseconds"
+    },
+    "starts_at": {
+      "type": "string",
+      "title": "NFTokenMetadataStartsAt",
+      "description": "When token starts being valid, Unix epoch in milliseconds"
+    },
+    "updated_at": {
+      "type": "string",
+      "title": "NFTokenMetadataUpdatedAt",
+      "description": "When token was last updated, Unix epoch in milliseconds"
+    },
+    "extra": {
+      "type": "string",
+      "title": "NFTokenMetadataExtra",
+      "description": "Anything extra the MT wants to store on-chain. Can be stringified JSON."
+    },
+    "reference": {
+      "type": "string",
+      "title": "NFTokenMetadataReference",
+      "description": "URL to an off-chain JSON file with more info."
+    },
+    "reference_hash": {
+      "type": "string",
+      "title": "NFTokenMetadataReferenceHash",
+      "description": "Base64-encoded sha256 hash of JSON from reference field. Required if `reference` is included."
+    }
+  }
+}

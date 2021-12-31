@@ -1,0 +1,38 @@
+{
+  "name": "nft_revoke",
+  "summary": "Revoke an approved account for a specific token",
+  "description": "Revoke an approved account for a specific token",
+  "tags": [
+    {
+      "$ref": "../../tags/change.json"
+    },
+    {
+      "$ref": "../../tags/ApprovalManagement.json"
+    }
+  ],
+  "params": [
+    {
+      "name": "token_id",
+      "summary": "The token id for which to revoke approvals",
+      "description": "The token id for which to revoke approvals",
+      "schema": {
+        "$ref": "../../schemas/TokenId.json"
+      },
+      "required": true
+    },
+    {
+      "name": "account_id",
+      "summary": "The account to revoke from approvals",
+      "description": "The account to revoke from approvals",
+      "schema": {
+        "$ref": "../../schemas/AccountId.json"
+      }
+    }
+  ],
+  "result": {
+    "name": "MtRevokeResult",
+    "schema": {
+      "type": "null"
+    }
+  }
+}

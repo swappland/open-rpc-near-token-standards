@@ -1,0 +1,5 @@
+{
+  "title": "Limit",
+  "description": "Limit for setting pagination u64 constrainted by 2^53 js limit",
+  "type": "integer"
+}

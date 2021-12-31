@@ -1,0 +1,5 @@
+{
+  "title": "FTMetadataVersion",
+  "type": "string",
+  "description": "Version of token typically x.x.x major.minor.patch"
+}

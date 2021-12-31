@@ -1,0 +1,12 @@
+{
+  "title": "Bid",
+  "type": "object",
+  "properties": {
+    "owner_id": {
+      "$ref": "../AccountId.json"
+    },
+    "price": {
+      "$ref": "../U128.json"
+    }
+  }
+}
