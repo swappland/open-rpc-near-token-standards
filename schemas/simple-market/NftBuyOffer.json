@@ -2,11 +2,8 @@
   "title": "NftBuyOffer",
   "type": "object",
   "properties": {
-    "nft_contract_id": {
-      "$ref": "../AccountId.json"
-    },
-    "nft_token_id": {
-      "$ref": "../TokenId.json"
+    "sale_id": {
+      "$ref": "./SaleId.json"
     },
     "offer_approval_id": {
       "$ref": "../ApprovalId.json"
@@ -19,8 +16,7 @@
     }
   },
   "required": [
-    "nft_contract_id",
-    "nft_token_id",
+    "sale_id",
     "offer_approval_id",
     "offer_nft_contract_id",
     "offer_nft_token_id"
