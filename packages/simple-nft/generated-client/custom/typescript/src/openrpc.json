@@ -519,6 +519,74 @@
       }
     },
     {
+      "name": "nft_payout",
+      "summary": "Retuns the `Payout` struct for a given `token_id` and `balance`",
+      "description": "Given a `token_id` and NEAR-denominated balance, return the `Payout` struct for the given token. Panic if the length of the payout exceeds  `max_len_payout.`",
+      "tags": [
+        {
+          "name": "view",
+          "description": "View only methods"
+        }
+      ],
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "token_id",
+          "summary": "The TokenId to transfer",
+          "description": "The TokenId to transfer",
+          "schema": {
+            "title": "TokenId",
+            "description": "Token identifier that corresponds to an id",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "balance",
+          "summary": "The amount for the nft contract to determine payout",
+          "description": "The amount for the nft contract to determine payout",
+          "schema": {
+            "title": "U128",
+            "type": "string",
+            "description": "U128 integer as string"
+          }
+        },
+        {
+          "name": "max_len_payout",
+          "summary": "The maximum number of accounts to pay out",
+          "description": "The maximum number of accounts that can be paid out",
+          "schema": {
+            "title": "U32",
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      ],
+      "result": {
+        "name": "NFTPayoutResult",
+        "schema": {
+          "title": "NFTPayout",
+          "type": "object",
+          "properties": {
+            "payout": {
+              "title": "NFTPayoutMap",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "title": "U128",
+                "type": "string",
+                "description": "U128 integer as string"
+              }
+            }
+          },
+          "required": [
+            "payout"
+          ]
+        },
+        "required": true
+      }
+    },
+    {
       "name": "nft_transfer_payout",
       "summary": "Transfers tokens from one account to another with royalty payout",
       "description": "Transfer tokens from one account to another with royalty payout calculation. Calling contract receives resulting payout computation",
@@ -582,17 +650,6 @@
             "type": "number"
           },
           "required": false
-        },
-        {
-          "name": "memo",
-          "summary": "Memo message to describe operation",
-          "description": "For use cases that may benefit from indexing or providing information for a transfer",
-          "schema": {
-            "title": "Memo",
-            "description": "A message to describe an operation",
-            "type": "string"
-          },
-          "required": false
         }
       ],
       "result": {
@@ -600,13 +657,23 @@
         "schema": {
           "title": "NFTPayout",
           "type": "object",
-          "properties": {},
-          "additionalProperties": {
-            "title": "U128",
-            "type": "string",
-            "description": "U128 integer as string"
-          }
-        }
+          "properties": {
+            "payout": {
+              "title": "NFTPayoutMap",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "title": "U128",
+                "type": "string",
+                "description": "U128 integer as string"
+              }
+            }
+          },
+          "required": [
+            "payout"
+          ]
+        },
+        "required": true
       }
     },
     {

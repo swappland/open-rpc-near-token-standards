@@ -1,0 +1,9 @@
+{
+  "title": "NFTPayoutMap",
+  "type": "object",
+  "properties": {
+  },
+  "additionalProperties": {
+    "$ref": "./U128.json"
+  }
+}

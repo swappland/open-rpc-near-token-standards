@@ -2,8 +2,11 @@
   "title": "NFTPayout",
   "type": "object",
   "properties": {
+    "payout": {
+      "$ref": "./NFTPayoutMap.json"
+    }
   },
-  "additionalProperties": {
-    "$ref": "./U128.json"
-  }
+  "required": [
+    "payout"
+  ]
 }

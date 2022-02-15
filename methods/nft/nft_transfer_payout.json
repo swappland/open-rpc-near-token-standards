@@ -57,6 +57,7 @@
     "name": "NFTTransferPayout",
     "schema": {
       "$ref":"../../schemas/NFTPayout.json"
-    }
+    },
+    "required": true
   }
 }

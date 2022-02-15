@@ -263,13 +263,23 @@
         "schema": {
           "title": "NFTPayout",
           "type": "object",
-          "properties": {},
-          "additionalProperties": {
-            "title": "U128",
-            "type": "string",
-            "description": "U128 integer as string"
-          }
-        }
+          "properties": {
+            "payout": {
+              "title": "NFTPayoutMap",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "title": "U128",
+                "type": "string",
+                "description": "U128 integer as string"
+              }
+            }
+          },
+          "required": [
+            "payout"
+          ]
+        },
+        "required": true
       }
     },
     {
@@ -343,13 +353,23 @@
         "schema": {
           "title": "NFTPayout",
           "type": "object",
-          "properties": {},
-          "additionalProperties": {
-            "title": "U128",
-            "type": "string",
-            "description": "U128 integer as string"
-          }
-        }
+          "properties": {
+            "payout": {
+              "title": "NFTPayoutMap",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {
+                "title": "U128",
+                "type": "string",
+                "description": "U128 integer as string"
+              }
+            }
+          },
+          "required": [
+            "payout"
+          ]
+        },
+        "required": true
       }
     },
     {

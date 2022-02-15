@@ -39,6 +39,7 @@
     "name": "NFTPayoutResult",
     "schema": {
       "$ref":"../../schemas/NFTPayout.json"
-    }
+    },
+    "required":true
   }
 }
