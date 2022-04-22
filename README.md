@@ -1,6 +1,7 @@
-# Open-RPC Near Token Stanndards Specifications 
+# Open-RPC Near Token Standards Specifications 
 
 [View the ft spec][ft-standard]
+
 [View the nft spec][nft-standard]
 
 Near token contract standards are a collection of OpenRPC specifications that describe
@@ -16,15 +17,13 @@ custom contracts that adhere to the Near token standards
 There are many ways to use this package. This can be used to build your own documentation and specs see [swappland][swappland-market]
 or you can use the generated clients to just connect with standards compliant NFT contracts.
 
-
-
 ### Use the standard clients
+
 ```
 npm install @swappland/ft-standards-client
 npm install @swappland/nft-standards-client
 npm install @swappland/simple-nft-client
 npm install @swappland/simple-ft-client
-
 ```
 
 ```ts
@@ -75,16 +74,19 @@ npm install @swappland/open-rpc-token-standards-specs
 npm install @xops.net/openrpc-cli
 ```
 #### Add these to your scripts in package.json to jump start the standards process
-```json
+
+```
   scripts: {
     "get:standards": "mkdir -p standards && cp -r node_modules/@swappland/open-rpc-token-standards-specs/generated/specs/** standards/",
     "bundle:open-rpc": "mkdir -p build && openrpc-cli bundle -s openrpc.json > build/openrpc.json",
     "gen:client": "open-rpc-generator generate -c open-rpc-generator-config.json",
     "build": "npm run bundle:open && npm run gen:client"
+    ...
   }
 ```
 
 #### Create a generator client config
+```
 echo '{
 {
   "openrpcDocument": "./openrpc.json",
@@ -99,8 +101,11 @@ echo '{
       } 
   ]
 ' > open-rpc-generator-config.json
-```sh
+```
 
+#### Installation
+
+```sh
 # simply take the standards spec and place it into standards location that you can then refer to 
 npm run get:standards  
 # Take the documents that you've generated and bundle them into a single openrpc.json
@@ -110,7 +115,6 @@ npm run gen:client
 # or use the now that was easy button that combines the bundle and generation steps
 npm run build
 ```
-
 This outputs a build directory and generated client directories that you can package however you like 
 and use in web or node context
 
@@ -134,6 +138,7 @@ const client = new Client({account, contractId});
 
 The specification is split into multiple packages for standard generated clients, and the specifications themselves are 
 broken down into `methods`, `schemas`, and `tags`.
+```
 ├── methods
 │   ├── ft
 │   ├── nft
@@ -150,6 +155,7 @@ broken down into `methods`, `schemas`, and `tags`.
 │   ├── simple-market
 │   └── simple-nft
 └── tags
+```
 
 ### Packages 
 Packages are the standard clients pre bundled and generated from the specifications, we've included the generated assets in build
