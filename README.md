@@ -1,5 +1,6 @@
 # Open-RPC Near Token Standards Specifications 
 
+
 [View the ft spec][ft-standard]
 
 [View the nft spec][nft-standard]
